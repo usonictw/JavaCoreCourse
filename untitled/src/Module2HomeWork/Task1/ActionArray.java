@@ -5,6 +5,7 @@ package Module2HomeWork.Task1;
  */
 public class ActionArray {
 
+//------------------------------------------------------Calculated Sum of all elements the array-------------------------------------------
     static int calculateSum(int[] array) {
         int sum = 0;
         for (int valueOfArray : array) {
@@ -16,13 +17,14 @@ public class ActionArray {
 
     static double calculateSumDouble(double[] arrayD) {
         double sum = 0;
-        for (double valueOfArray : arrayD) {
+        for (double valueOfArrayD : arrayD) {
 
-            sum += valueOfArray;
+            sum += valueOfArrayD;
         }
         return sum;
     }
 
+//------------------------------------------------------maximum element the array search method-------------------------------------------------
     static int maxOfArray(int[] array) {
 
         int max = array[0];
@@ -45,6 +47,7 @@ public class ActionArray {
         return maxD;
     }
 
+//-------------------------------------------------------minimum element the array search method-------------------------------------------------
     static int minOfArray(int[] array) {
 
         int min = array[0];
@@ -55,6 +58,19 @@ public class ActionArray {
         }
         return min;
     }
+
+    static double minOfArrayD(double[] arrayD) {
+
+        double minD = arrayD[0];
+        for (int i = 1; i < arrayD.length; i++) {
+            if (minD > arrayD[i]) {
+                minD = arrayD[i];
+            }
+        }
+        return minD;
+    }
+
+//-------------------------------------------------------positive maximum element the array search method-------------------------------------------------
 
     static int positiveMaxOfArray(int[] array) {
 
@@ -68,8 +84,20 @@ public class ActionArray {
         return posmax;
     }
 
-    // module by dividing the first and last element of array
-    static int modulus(int[] array) {
+    static double positiveMaxOfArrayD(double[] arrayD) {
+
+        double posMaxD = arrayD[0];
+        for (int i = 1; i < arrayD.length; i++) {
+            if (posMaxD < arrayD[i] && arrayD[i] > 0) {
+                posMaxD = arrayD[i];
+            }
+
+        }
+        return posMaxD;
+    }
+
+    //-------------------------------------------------------modulo the first and last element of array-------------------------------------------------
+     static int modulo(int[] array) {
 
         int module;
         module = array[0] % array[array.length - 1];
@@ -77,6 +105,14 @@ public class ActionArray {
         return module;
     }
 
+    static double moduloD(double[] arrayD) {
+
+        double moduloD;
+        moduloD = arrayD[0] % arrayD[arrayD.length - 1];
+
+        return moduloD;
+    }
+   //-------------------------------------------------------second largest element of the array-------------------------------------------------
   static int secondLargest(int[] array){
 
         for(int i=0; i<array.length-1; i++){
@@ -102,10 +138,36 @@ public class ActionArray {
 
     }
 
+    static double secondLargestD(double[] arrayD){
+
+        for(int i=0; i<arrayD.length-1; i++){
+            //boolean flag=false;
+
+            for(int j=0; j<arrayD.length-i-1; j++){
+
+                if(arrayD[j]>arrayD[j+1]){
+                    double temp=arrayD[j+1];
+                    arrayD[j+1]=arrayD[j];
+                    arrayD[j]=temp;
+
+                    // flag=true;
+                }
+            }
+            //if(!flag) break;
+
+            if(i==1) break;
+
+        }
+        double secLD=arrayD[arrayD.length-2];
+        return secLD;
+
+    }
+
+
     public static void main(String[] args) {
 
         int[] array = {3, 7, 4, 34, 78, 76, 32, 87, 12, 5};
-        double[] arrayD={3.12, 4.234, 5.322, 7.09, 6.89, 32.67, 12.765, 7.986, 9,432, 13.872};
+        double[] arrayD={3.12, 4.234, 5.322, 7.09, 6.89, 32.67, 12.765, 7.986, 9.432, 13.872};
         //Calculate sum of elements of the Array and ArrayD
         int sumArray = calculateSum(array);
         double sumArrayD=calculateSumDouble(arrayD);
@@ -114,24 +176,35 @@ public class ActionArray {
         double maxD=maxOfArrayDouble(arrayD);
         //the minimum element of the array search method
         int min = minOfArray(array);
+        double minD = minOfArrayD(arrayD);
         //positive maximum of element the Array search method
         int posMax = positiveMaxOfArray(array);
+        double posMaxD=positiveMaxOfArrayD(arrayD);
         //calculate modulo method
-        int module = modulus(array);
+        int modulo = modulo(array);
+        double moduloD = moduloD(arrayD);
         //Second largest of element the array search method
         int secondLargest=secondLargest(array);
+        double secondLargestD = secondLargestD(arrayD);
 
        // Output "Sum, Max, Min, Modulo, Second Largest element of the Array"
         System.out.println("Sum of int elements the array: " + sumArray);
         System.out.println("Sum of double elements the array: " + sumArrayD);
-        System.out.println("Max of array: " + max);
-        System.out.println("Min of array: " + min);
-        if (posMax > -1) System.out.println("Positive max value of array: " + posMax);
+        System.out.println("Max int element of the array: " + max);
+        System.out.println("Max double element of the array: " + maxD);
+        System.out.println("Min int element of the array: " + min);
+        System.out.println("Min double element of the array: " + minD);
+        if (posMax > -1) System.out.println("Positive max int value of array: " + posMax);
         else System.out.println("array haven't positive value");
 
-        System.out.println("Module by dividing the first and last elrment of array: " + module);
+        if (posMax > -1) System.out.println("Positive max double value of array: " + posMaxD);
+        else System.out.println("array haven't positive value");
 
-        System.out.println("Second largest element of array: "+secondLargest);
+        System.out.println("Modulo the int first and last element of array: " + modulo);
+        System.out.println("Modulo the double first and last element of array: " + moduloD);
+
+        System.out.println("Second largest int element of array: "+secondLargest);
+        System.out.println("Second largest double element of array: "+secondLargestD);
 
 
 
