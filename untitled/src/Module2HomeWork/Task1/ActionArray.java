@@ -1,4 +1,4 @@
-package Module2HomeWork.Task1;
+package Module2HomeWork.Task1.Task2_2;
 
 /**
  * Created by PC on ${DATA}.
