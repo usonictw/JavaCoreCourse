@@ -96,6 +96,30 @@ public class ActionArray {
         return posMaxD;
     }
 
+    //-------------------------------------------------------miltiplication--------------------------------------------------------------
+
+    static int multiplication(int[] array){
+        int mult = 1;
+        for (int valueArray:array){
+
+            mult*=valueArray;
+
+        }
+
+        return mult;
+    }
+
+    static double multiplicationD(double[] array){
+        double multD = 1;
+        for (double valueArray:array){
+
+            multD*=valueArray;
+
+        }
+
+        return multD;
+    }
+
     //-------------------------------------------------------modulo the first and last element of array-------------------------------------------------
      static int modulo(int[] array) {
 
@@ -166,8 +190,8 @@ public class ActionArray {
 
     public static void main(String[] args) {
 
-        int[] array = {3, 7, 4, 34, 78, 76, 32, 87, 12, 5};
-        double[] arrayD={3.12, 4.234, 5.322, 7.09, 6.89, 32.67, 12.765, 7.986, 9.432, 13.872};
+        int[] array = {1, 4, 4, 4, 4, 2, 1, 5, 2, 3};
+        double[] arrayD={3.12, 4.234, 5.322, 7.09, 6.89, 0.67, 1.765, 7.986, 9.432, 3.4};
         //Calculate sum of elements of the Array and ArrayD
         int sumArray = calculateSum(array);
         double sumArrayD=calculateSumDouble(arrayD);
@@ -180,6 +204,9 @@ public class ActionArray {
         //positive maximum of element the Array search method
         int posMax = positiveMaxOfArray(array);
         double posMaxD=positiveMaxOfArrayD(arrayD);
+        //multiplication
+        int mult = multiplication(array);
+        double multD = multiplicationD(arrayD);
         //calculate modulo method
         int modulo = modulo(array);
         double moduloD = moduloD(arrayD);
@@ -194,12 +221,14 @@ public class ActionArray {
         System.out.println("Max double element of the array: " + maxD);
         System.out.println("Min int element of the array: " + min);
         System.out.println("Min double element of the array: " + minD);
-        if (posMax > -1) System.out.println("Positive max int value of array: " + posMax);
+        if (posMax > 0) System.out.println("Positive max int value of array: " + posMax);
         else System.out.println("array haven't positive value");
 
-        if (posMax > -1) System.out.println("Positive max double value of array: " + posMaxD);
+        if (posMax > 0) System.out.println("Positive max double value of array: " + posMaxD);
         else System.out.println("array haven't positive value");
 
+        System.out.println("Multiplication of all int elements the array is: "+ mult);
+        System.out.println("Multiplication of all double elements the array is: "+ multD);
         System.out.println("Modulo the int first and last element of array: " + modulo);
         System.out.println("Modulo the double first and last element of array: " + moduloD);
 
