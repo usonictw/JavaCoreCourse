@@ -54,12 +54,42 @@ public class Bank {
 
     }
 
+    // additional tasks
+
+    static int sumNumeralOfNumber(int number){
+
+       int firstNumeral, secondNumeral, sum;
+        sum = 0;
+
+        if(number<10 || number > 100) {
+
+            sum = 0;
+        }
+        else if(number>=10 && number<100){
+            firstNumeral = number/10; // determinate first numeral
+            secondNumeral = number%10; // determinate second numeral
+            sum = firstNumeral + secondNumeral; //calculate sum of numerals
+        }
+
+
+
+        return sum;
+    }
+
 
     public static void main(String[] args) {
 
         withdrawBalance(balance[0], 10.4);
         withdrawBalance("Bim", 10.0);
         fundBalance("John", 100);
+
+        int sum = sumNumeralOfNumber(99);
+        if (sum==0){
+            System.out.println("Input two-digit number");
+        }
+        else {
+            System.out.println("Sum of numerals is: "+sum);
+        }
 
 
 
