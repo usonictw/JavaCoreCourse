@@ -26,7 +26,7 @@ public class Bank {
     //HOMEWORK 2.2
     static void withdrawBalance(String ownerName, double withdrawal) {
 
-        for (int i=0; i<ownerNames.length;i++){
+        for (int i=0; i<ownerNames.length; i++){
 
             if(ownerName.equals(ownerNames[i])) {
                 System.out.print(ownerName + " ");

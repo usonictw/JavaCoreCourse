@@ -1,4 +1,4 @@
-package Module2HomeWork.Task1;
+package Module2HomeWork.Task1.Task2_2;
 
 /**
  * Created by PC on ${DATA}.
@@ -138,9 +138,9 @@ public class ActionArray {
     }
    //-------------------------------------------------------second largest element of the array-------------------------------------------------
   static int secondLargest(int[] array){
-        int secL=0;
+
         for(int i=0; i<array.length-1; i++){
-            boolean flag=false;
+            //boolean flag=false;
 
             for(int j=0; j<array.length-i-1; j++){
 
@@ -149,40 +149,23 @@ public class ActionArray {
                     array[j+1]=array[j];
                     array[j]=temp;
 
-                   flag=true;
+                   // flag=true;
                 }
             }
-           if(!flag) break;
+           //if(!flag) break;
 
-            //if(i==1) break;
+            if(i==1) break;
 
         }
-
-        for (int i = array.length-1; i>0; i--){
-            if(array[i-1]<array[i]){
-                secL=array[i-1];
-                break;
-            }
-        }
-
+        int secL=array[array.length-2];
         return secL;
 
     }
 
-    static int secondLargestNew(int[] array){
-
-        int maxOfElement = maxOfArray(array);
-        for(int i=0; i<array.length; i++){
-
-        }
-       return 0;
-    }
-
     static double secondLargestD(double[] arrayD){
 
-        double secLD=0;
         for(int i=0; i<arrayD.length-1; i++){
-            boolean flag=false;
+            //boolean flag=false;
 
             for(int j=0; j<arrayD.length-i-1; j++){
 
@@ -191,70 +174,23 @@ public class ActionArray {
                     arrayD[j+1]=arrayD[j];
                     arrayD[j]=temp;
 
-                    flag=true;
+                    // flag=true;
                 }
             }
-            if(!flag) break;
+            //if(!flag) break;
 
-            //if(i==1) break;
+            if(i==1) break;
 
         }
-        for (int i = arrayD.length-1; i>0; i--){
-            if(arrayD[i-1]<arrayD[i]){
-                secLD=arrayD[i-1];
-                break;
-            }
-        }
-
+        double secLD=arrayD[arrayD.length-2];
         return secLD;
 
     }
 
-    static int[] secondLargestNewMethod(int[] array){
-
-        int secL=0;
-        int[] moduloArray = new int[array.length-1];
-        int maxArray=maxOfArray(array);
-        for (int i=0; i<array.length; i++){
-            int modulo = maxArray%array[i];
-            moduloArray[i] = modulo;
-        }
-
-
-        /*for(int i=0; i<arrayD.length-1; i++){
-            boolean flag=false;
-
-            for(int j=0; j<arrayD.length-i-1; j++){
-
-                if(arrayD[j]>arrayD[j+1]){
-                    double temp=arrayD[j+1];
-                    arrayD[j+1]=arrayD[j];
-                    arrayD[j]=temp;
-
-                    flag=true;
-                }
-            }
-            if(!flag) break;
-
-            //if(i==1) break;
-
-        }
-        for (int i = arrayD.length-1; i>0; i--){
-            if(arrayD[i-1]<arrayD[i]){
-                secLD=arrayD[i-1];
-                break;
-            }
-        }*/
-
-        return moduloArray;
-
-    }
-
-
 
     public static void main(String[] args) {
 
-        int[] array = {1, 4, 4, 4, 5, 2, 1, 5, 2, 3};
+        int[] array = {1, 4, 4, 4, 4, 2, 1, 5, 2, 3};
         double[] arrayD={3.12, 4.234, 5.322, 7.09, 6.89, 0.67, 1.765, 7.986, 9.432, 3.4};
         //Calculate sum of elements of the Array and ArrayD
         int sumArray = calculateSum(array);
@@ -300,10 +236,7 @@ public class ActionArray {
         System.out.println("Second largest double element of array: "+secondLargestD);
 
 
-        int[] moduloArray = secondLargestNewMethod(array);
-       for (int i=0; i<moduloArray.length; i++) {
-           System.out.println(moduloArray[i]);
-       }
+
 
     }
 }
