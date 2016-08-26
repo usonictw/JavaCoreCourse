@@ -201,6 +201,47 @@ public class ActionArray {
 
     }
 
+    static int[] secondLargestNewMethod(int[] array){
+
+        int secL=0;
+        int[] moduloArray = new int[array.length-1];
+        int maxArray=maxOfArray(array);
+        for (int i=0; i<array.length; i++){
+            int modulo = maxArray%array[i];
+            moduloArray[i] = modulo;
+        }
+
+
+        /*for(int i=0; i<arrayD.length-1; i++){
+            boolean flag=false;
+
+            for(int j=0; j<arrayD.length-i-1; j++){
+
+                if(arrayD[j]>arrayD[j+1]){
+                    double temp=arrayD[j+1];
+                    arrayD[j+1]=arrayD[j];
+                    arrayD[j]=temp;
+
+                    flag=true;
+                }
+            }
+            if(!flag) break;
+
+            //if(i==1) break;
+
+        }
+        for (int i = arrayD.length-1; i>0; i--){
+            if(arrayD[i-1]<arrayD[i]){
+                secLD=arrayD[i-1];
+                break;
+            }
+        }*/
+
+        return moduloArray;
+
+    }
+
+
 
     public static void main(String[] args) {
 
@@ -250,7 +291,10 @@ public class ActionArray {
         System.out.println("Second largest double element of array: "+secondLargestD);
 
 
-
+        int[] moduloArray = secondLargestNewMethod(array);
+       for (int i=0; i<moduloArray.length; i++) {
+           System.out.println(moduloArray[i]);
+       }
 
     }
 }
