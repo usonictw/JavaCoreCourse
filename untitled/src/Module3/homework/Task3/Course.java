@@ -21,12 +21,6 @@ public class Course {
     }
 
 
-    public Date getStartDate() {
-
-        long startDate = ;
-
-        return startDate;
-    }
 
     public String getName() {
         return name;

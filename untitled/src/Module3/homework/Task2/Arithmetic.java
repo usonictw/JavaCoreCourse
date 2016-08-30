@@ -4,10 +4,7 @@ public class Arithmetic {
 
     public int add(Integer a, Integer b){
 
-        int a1 = a.intValue();
-        int b1 = b.intValue();
-
-        int sum = a1+ b1;
+       int sum = a.intValue()+ b.intValue();
 
         return sum;
     }

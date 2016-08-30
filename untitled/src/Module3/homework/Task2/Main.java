@@ -1,15 +1,15 @@
 package Module3.homework.Task2;
 
-/**
- * Created by Andrey on 8/26/16.
- */
 public class Main {
     public static void main(String[] args) {
 
-    Adder test = new Adder();
+        Integer a1 = new Integer(3);
+        Integer b1 = new Integer(5);
 
-        System.out.println(test.add(-5, 7));
-        System.out.println(test.check(-14, -7));
+        Adder test = new Adder();
+
+        System.out.println(test.add(a1, b1));
+        System.out.println(test.check(a1, b1));
 
         //
     }
