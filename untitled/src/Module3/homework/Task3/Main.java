@@ -6,14 +6,30 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Course course1 = new Course("Jeyne", "Pol", 30);
-        Course course2 = new Course("Peter", "Pen", 40);
-        Course course3
-        //course2.getStartDate();
-        Student student1 = new Student("Michel", "Jordan", 3);
-        //Student student2 = new Student("Jordan",)
+        Course course1 = new Course("Mathematic", "Pol", 30);
+        Course course2 = new Course("Chemistry", "Pen", 43);
+        Course course3 = new Course("Biology", "Edward", 45);
+        Course course4 = new Course("IT", "Michel", 50);
+        Course course5 = new Course("Geometry", "Klark", 50);
 
-       // System.out.println(startDate);
+        Course course11 = new Course(new Date(),"Mathematic");
+        Course course12 = new Course(new Date(),"Chemistry");
+        Course course13 = new Course(new Date(),"Biology");
+        Course course14 = new Course(new Date(),"IT");
+        Course course15 = new Course(new Date(),"Geometry");
+
+
+        Course[] courseTaken = new Course[3];
+        courseTaken[0] = course1;
+        courseTaken[1] = course2;
+        courseTaken[2] = course3;
+        Student student1 = new Student("Pol", "Smith", 1);
+        Student student1_0 = new Student("Smith",courseTaken);
+
+
+
+
+
 
     }
 }
