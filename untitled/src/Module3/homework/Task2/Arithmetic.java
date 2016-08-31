@@ -4,9 +4,12 @@ public class Arithmetic {
 
     public int add(Integer a, Integer b){
 
-       int sum = a.intValue()+ b.intValue();
+        int value1 = a;
+        int value2 = b;
+        int sum = value1+ value2;
 
         return sum;
     }
 
 }
+
