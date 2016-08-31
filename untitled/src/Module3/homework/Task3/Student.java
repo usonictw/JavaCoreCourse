@@ -1,6 +1,8 @@
 package Module3.homework.Task3;
 
 
+import java.util.Arrays;
+
 public class Student  {
 
     private String firstName, lastName;
@@ -8,15 +10,28 @@ public class Student  {
     private Course[] coursesTaken;
 
 
-    public Student(String firstName, String lastName, int group) {
+    public Student(String firstName, String lastName, int group, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.age = age;
         this.group = group;
     }
+
 
     public Student(String lastName, Course[] coursesTaken) {
         this.lastName = lastName;
         this.coursesTaken = coursesTaken;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", group=" + group +
+                ", age=" + age +
+                ", coursesTaken=" + Arrays.toString(coursesTaken) +
+                '}';
     }
 
     public String getFirstName() {

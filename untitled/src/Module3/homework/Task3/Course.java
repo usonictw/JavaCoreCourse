@@ -20,6 +20,15 @@ public class Course {
         this.hoursDuration = hoursDuration;
     }
 
+    @Override
+    public String toString() {
+        return "Course{" +
+                "startDate=" + startDate +
+                ", name='" + name + '\'' +
+                ", teacherName='" + teacherName + '\'' +
+                ", hoursDuration=" + hoursDuration +
+                '}';
+    }
 
 
     public String getName() {

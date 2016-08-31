@@ -21,17 +21,21 @@ public class Main {
 
         Course[] courseTaken = {course1, course2, course3, course4, course5};
 
-        Student student1 = new Student("Pol", "Smith", 1);
+        Student student1 = new Student("Pol", "Smith", 1, 22);
         Student student1_0 = new Student("Smith",courseTaken);
 
-        CollegeStudent collegeStudent1 = new CollegeStudent("Kurt", "Russell", 2);
+        CollegeStudent collegeStudent1 = new CollegeStudent("Kurt", "Russell", 2, 21);
         CollegeStudent collegeStudent2 = new CollegeStudent("Rassel", courseTaken);
-        CollegeStudent collegeStudent3 = new CollegeStudent("Kurt", "Russell", 2, "Stanford", 100, 010203);
+        CollegeStudent collegeStudent3 = new CollegeStudent("Kurt", "Russell", 2, 21, "Stanford", 100, 010203);
 
-        SpecialStudent specialStudent1 = new SpecialStudent("Kurt", "Russell", 2);
+        SpecialStudent specialStudent1 = new SpecialStudent("Kurt", "Russell", 2, 21);
         SpecialStudent specialStudent2 = new SpecialStudent("Robben", courseTaken);
-        SpecialStudent specialStudent3 = new SpecialStudent("Kurt", "Russell", 2, "Stanford", 100, 010203, 3235);
+        SpecialStudent specialStudent3 = new SpecialStudent("Kurt", "Russell", 2, 21, "Stanford", 100, 010203, 3235);
 
 
+
+        student1_0.setFirstName("Tom");
+        System.out.println(course2.toString());
+        System.out.println(student1_0.toString());
     }
 }

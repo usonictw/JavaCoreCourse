@@ -12,6 +12,13 @@ public class User {
     private int salary;
     private String currency;
 
+
+    void paySalary(){
+
+
+    }
+
+
     public User(String name, int balance, int monthsOfEmployment, String companyName, int salary, String currency) {
         this.name = name;
         this.balance = balance;
