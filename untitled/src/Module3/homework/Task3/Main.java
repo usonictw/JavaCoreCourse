@@ -19,12 +19,17 @@ public class Main {
         Course course15 = new Course(new Date(),"Geometry");
 
 
-        Course[] courseTaken = new Course[3];
-        courseTaken[0] = course1;
-        courseTaken[1] = course2;
-        courseTaken[2] = course3;
+        Course[] courseTaken = {course1, course2, course3, course4, course5};
+
         Student student1 = new Student("Pol", "Smith", 1);
         Student student1_0 = new Student("Smith",courseTaken);
+
+        CollegeStudent collegeStudent1 = new CollegeStudent("Kurt", "Russell", 2);
+        CollegeStudent collegeStudent2 = new CollegeStudent("Rassel", courseTaken);
+        CollegeStudent collegeStudent3 = new CollegeStudent("Kurt", "Russell", 2, "Stanford", 100, 010203);
+
+        SpecialStudent specialStudent1 = new SpecialStudent(student1.getFirstName(), student1.getLastName(),student1.getGroup());
+        SpecialStudent specialStudent2 =
 
 
 
