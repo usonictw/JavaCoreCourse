@@ -28,12 +28,9 @@ public class Main {
         CollegeStudent collegeStudent2 = new CollegeStudent("Rassel", courseTaken);
         CollegeStudent collegeStudent3 = new CollegeStudent("Kurt", "Russell", 2, "Stanford", 100, 010203);
 
-        SpecialStudent specialStudent1 = new SpecialStudent(student1.getFirstName(), student1.getLastName(),student1.getGroup());
-        SpecialStudent specialStudent2 =
-
-
-
-
+        SpecialStudent specialStudent1 = new SpecialStudent("Kurt", "Russell", 2);
+        SpecialStudent specialStudent2 = new SpecialStudent("Robben", courseTaken);
+        SpecialStudent specialStudent3 = new SpecialStudent("Kurt", "Russell", 2, "Stanford", 100, 010203, 3235);
 
 
     }
