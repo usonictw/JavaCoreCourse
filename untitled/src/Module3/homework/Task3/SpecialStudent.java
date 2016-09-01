@@ -19,6 +19,11 @@ public class SpecialStudent extends CollegeStudent {
         this.secretKey = secretKey;
     }
 
+    //public SpecialStudent(Student st) {
+    //    super(st.getFirstName(), st.getLastName(), );
+    //}
+
+
     public long getSecretKey() {
         return secretKey;
     }
