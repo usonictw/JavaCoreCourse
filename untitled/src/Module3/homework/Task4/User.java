@@ -21,23 +21,29 @@ public class User {
 
     public void withdraw(int sum) {
 
+        // commission of the withdrawal less than 1000 euro
         int commission1 = 5;
+        // commission of the withdrawal more than 1000 euro
         int commission2 = 10;
 
         if (sum < 1000 && sum > 0) {
             sum = sum + sum * commission1 / 100;
+
             if (sum > balance) {
                 System.out.println("Sorry. withdrawal amount exceed your BALANCE");
             } else {
                 balance = balance - sum;
             }
+
         } else if (sum > 1000 && sum > 0) {
             sum = sum + sum * commission2 / 100;
+
             if (sum > balance) {
                 System.out.println("Sorry. withdrawal amount exceed your BALANCE");
             } else {
                 balance = balance - sum;
             }
+
         } else {
             System.out.println("Input sum more than 0");
         }
@@ -53,8 +59,6 @@ public class User {
 
             return  monthsOfEmployment = monthsOfEmployment+addMonth;
         }
-
-
 
     public User(String name, int balance, int monthsOfEmployment, String companyName, int salary, String currency) {
         this.name = name;
