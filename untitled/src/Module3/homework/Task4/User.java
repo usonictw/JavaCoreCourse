@@ -15,7 +15,7 @@ public class User {
 
     public void paySalary(){
 
-        balance = balance+salary;
+        balance+= salary;
 
     }
 
