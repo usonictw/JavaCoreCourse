@@ -12,45 +12,47 @@ public class User {
     private int salary;
     private String currency;
 
-
+    // Method adding salary to user's balance
     public void paySalary(){
-
-        User.this.balance = User.this.getBalance()+User.this.getSalary();
-
+        balance = balance+salary;
     }
 
-    public void withdraw(int sum) {
-
+    // Method for withdrawal money from User's balance
+    public void withdrawal(int sum) {
+        //commission of the withdrawal less than 1000 euro
         int commission1 = 5;
+
+        //commission of the withdrawal more than 1000 euro
         int commission2 = 10;
 
-        if (sum < 1000 && sum > 0) {
+        if ((sum < 1000) && (sum > 0)) {
             sum = sum + sum * commission1 / 100;
+
             if (sum > balance) {
                 System.out.println("Sorry. withdrawal amount exceed your BALANCE");
             } else {
                 balance = balance - sum;
             }
-        } else if (sum > 1000 && sum > 0) {
+
+        } else if ((sum > 1000) && (sum > 0)) {
             sum = sum + sum * commission2 / 100;
+
             if (sum > balance) {
                 System.out.println("Sorry. withdrawal amount exceed your BALANCE");
             } else {
                 balance = balance - sum;
             }
+
         } else {
             System.out.println("Input sum more than 0");
         }
     }
 
         public int companyNameLength(){
-
             return companyName.length();
-
         }
 
         public int monthIncrease(int addMonth){
-
             return  monthsOfEmployment = monthsOfEmployment+addMonth;
         }
 
