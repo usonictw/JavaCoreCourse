@@ -15,7 +15,7 @@ public class User {
 
     public void paySalary(){
 
-        User.this.balance = User.this.getBalance()+User.this.getSalary();
+        balance = balance + balance;
 
     }
 
