@@ -15,7 +15,7 @@ public class User {
 
     public void paySalary(){
 
-        balance = balance+salary;
+        balance+= salary;
 
     }
 
@@ -25,18 +25,18 @@ public class User {
         int commission2 = 10;
 
         if (sum < 1000 && sum > 0) {
-            sum = sum + sum * commission1 / 100;
+            sum+= sum * commission1 / 100;
             if (sum > balance) {
                 System.out.println("Sorry. withdrawal amount exceed your BALANCE");
             } else {
-                balance = balance - sum;
+                balance-= sum;
             }
         } else if (sum > 1000 && sum > 0) {
-            sum = sum + sum * commission2 / 100;
+            sum-= sum * commission2 / 100;
             if (sum > balance) {
                 System.out.println("Sorry. withdrawal amount exceed your BALANCE");
             } else {
-                balance = balance - sum;
+                balance-= sum;
             }
         } else {
             System.out.println("Input sum more than 0");
