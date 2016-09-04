@@ -1,4 +1,4 @@
-package Module4.homework.Task1;
+package Module4.homework;
 
 import java.util.Currency;
 
