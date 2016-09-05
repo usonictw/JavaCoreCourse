@@ -13,14 +13,15 @@ commision - 5% if USD and up to 1000, 7% if USD and more than 1000
 
 public class USBank extends  Bank {
 
-    private Currency[] currency = {Currency.USD, Currency.EUR};
-    private int withdrawal;
+
+    //private Currency[] currency = {Currency.USD, Currency.EUR};
+    //private int withdrawal;
 
     @Override
     public int getLimitOfWithdrawal() {
 
         int limitOfWithdrawal = 0;
-        if(currency[0] == Currency.USD){
+        if(this.getCurrency() = Currency.valueOf("USD")){
            limitOfWithdrawal = 1000;
         } else if (currency[1] == Currency.EUR){
             limitOfWithdrawal = 1200;
