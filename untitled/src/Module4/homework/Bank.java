@@ -19,7 +19,7 @@ public abstract class Bank {
     //creating abstract methods
     public abstract int getLimitOfWithdrawal();
     public abstract int getLimitOfFunding();
-    public abstract int getMonthlyRate();
+    public abstract double getMonthlyRate();
     public abstract int getCommission();
     public abstract double moneyPaidForSalary();
 
