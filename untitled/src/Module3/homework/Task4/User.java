@@ -3,7 +3,7 @@ package Module3.homework.Task4;
 /**
  * Created by user on 31.08.2016.
  */
-public class User {
+public class User{
 
     private String name;
     private int balance;

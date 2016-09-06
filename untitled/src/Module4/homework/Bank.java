@@ -1,11 +1,11 @@
 package Module4.homework;
 
-import java.util.Currency;
 
 /**
  * Created by PC on ${DATA}.
  */
 public abstract class Bank {
+
 
     // announce field
     private long id;
@@ -22,6 +22,19 @@ public abstract class Bank {
     public abstract double getMonthlyRate();
     public abstract int getCommission();
     public abstract double moneyPaidForSalary();
+
+    public Bank(long id, String bankCountry, Currency currency,
+                int numberOfEmployee, double avrSalaryOfEmployee,
+                long rating, long totalCapital) {
+        this.id = id;
+        this.bankCountry = bankCountry;
+        this.currency = currency;
+        this.numberOfEmployee = numberOfEmployee;
+        this.avrSalaryOfEmployee = avrSalaryOfEmployee;
+        this.rating = rating;
+        this.totalCapital = totalCapital;
+    }
+
 
     // create getters and setters
 

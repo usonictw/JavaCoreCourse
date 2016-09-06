@@ -5,8 +5,6 @@ package Module3.homework.Task4;
  */
 public class Test {
 
-
-
     public static void main(String[] args) {
 
         User user1 = new User("Vladimir", 500, 22, "e-Technology", 240, "euro");

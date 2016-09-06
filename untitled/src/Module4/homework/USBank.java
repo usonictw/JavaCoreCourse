@@ -14,16 +14,23 @@ commision - 5% if USD and up to 1000, 7% if USD and more than 1000
 public class USBank extends  Bank {
 
 
-    //private Currency[] currency = {Currency.USD, Currency.EUR};
-    //private int withdrawal;
+    private int withdrawal;
+
+
+    public USBank(long id, String bankCountry, Currency currency, int numberOfEmployee,
+                  double avrSalaryOfEmployee, long rating, long totalCapital,
+                  int withdrawal) {
+        super(id, bankCountry, currency, numberOfEmployee, avrSalaryOfEmployee, rating, totalCapital);
+        this.withdrawal = withdrawal;
+    }
+
 
     @Override
     public int getLimitOfWithdrawal() {
-
         int limitOfWithdrawal = 0;
-        if(this.getCurrency() = Currency.valueOf("USD")){
+        if(getCurrency() == Currency.USD){
            limitOfWithdrawal = 1000;
-        } else if (currency[1] == Currency.EUR){
+        } else if (getCurrency() == Currency.EUR){
             limitOfWithdrawal = 1200;
         }
         return limitOfWithdrawal;
@@ -34,9 +41,9 @@ public class USBank extends  Bank {
     public int getLimitOfFunding() {
 
         int limitOfFunding = 0;
-        if(currency[0] == Currency.USD){
+        if(getCurrency() == Currency.USD){
             limitOfFunding = 1000000000;
-        } else if (currency[1] == Currency.EUR){
+        } else if (getCurrency() == Currency.EUR){
             limitOfFunding = 10000;
         }
         return limitOfFunding;
@@ -46,9 +53,9 @@ public class USBank extends  Bank {
     public double getMonthlyRate() {
 
         double monthlyRate = 0;
-        if(currency[0] == Currency.USD){
+        if(getCurrency() == Currency.USD){
             monthlyRate = 1.0;
-        }else if(currency[1] == Currency.EUR){
+        }else if(getCurrency() == Currency.EUR){
             monthlyRate = 1.5;
         }
         return monthlyRate;
@@ -58,13 +65,23 @@ public class USBank extends  Bank {
     public int getCommission() {
         int commission = 0;
 
-        if (currency[0] == Currency.USD && withdrawal <= 1000 ){
+        if (getCurrency() == Currency.USD && withdrawal <= 1000 ){
             commission = 5; // at percentage
-
-
+        } else if(getCurrency() == Currency.USD && withdrawal > 1000){
+            commission = 7; // at percentage
+        } else if(getCurrency() == Currency.EUR && withdrawal <= 1000){
+            commission = 6; //at percentage
+        } else if(getCurrency() == Currency.EUR && withdrawal > 1000){
+            commission = 8;
         }
 
 
-        return 0;
+        return commission;
+    }
+
+    @Override
+    public double moneyPaidForSalary() {
+
+        return getNumberOfEmployee()*getAvrSalaryOfEmployee();
     }
 }
