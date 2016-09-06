@@ -30,7 +30,7 @@ public class Student  {
                 ", lastName='" + lastName + '\'' +
                 ", group=" + group +
                 ", age=" + age +
-                ", coursesTaken=" + Arrays.toString(coursesTaken) +
+                ", coursesTaken=" + coursesTaken +
                 '}';
     }
 

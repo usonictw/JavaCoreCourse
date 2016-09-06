@@ -14,14 +14,13 @@ commision - 5% if USD and up to 1000, 7% if USD and more than 1000
 public class USBank extends  Bank {
 
 
-    private int withdrawal;
+    //private int withdrawal;
 
 
     public USBank(long id, String bankCountry, Currency currency, int numberOfEmployee,
-                  double avrSalaryOfEmployee, long rating, long totalCapital,
-                  int withdrawal) {
+                  double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployee, avrSalaryOfEmployee, rating, totalCapital);
-        this.withdrawal = withdrawal;
+        //this.withdrawal = withdrawal;
     }
 
 
@@ -62,16 +61,16 @@ public class USBank extends  Bank {
     }
 
     @Override
-    public int getCommission() {
-        int commission = 0;
+    public double getCommission(int sum) {
+        double commission = 0;
 
-        if (getCurrency() == Currency.USD && withdrawal <= 1000 ){
+        if (getCurrency() == Currency.USD && sum <= 1000 ){
             commission = 5; // at percentage
-        } else if(getCurrency() == Currency.USD && withdrawal > 1000){
+        } else if(getCurrency() == Currency.USD && sum > 1000){
             commission = 7; // at percentage
-        } else if(getCurrency() == Currency.EUR && withdrawal <= 1000){
+        } else if(getCurrency() == Currency.EUR && sum <= 1000){
             commission = 6; //at percentage
-        } else if(getCurrency() == Currency.EUR && withdrawal > 1000){
+        } else if(getCurrency() == Currency.EUR && sum > 1000){
             commission = 8;
         }
 

@@ -20,7 +20,7 @@ public abstract class Bank {
     public abstract int getLimitOfWithdrawal();
     public abstract int getLimitOfFunding();
     public abstract double getMonthlyRate();
-    public abstract int getCommission();
+    public abstract double getCommission(int sum);
     public abstract double moneyPaidForSalary();
 
     public Bank(long id, String bankCountry, Currency currency,

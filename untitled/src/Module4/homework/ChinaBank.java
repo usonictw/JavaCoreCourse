@@ -15,13 +15,13 @@ import java.util.*;
  */
 public class ChinaBank extends Bank {
 
-    private int withdrawal;
+    //private int withdrawal;
 
     public ChinaBank(long id, String bankCountry, Currency currency,
                      int numberOfEmployee, double avrSalaryOfEmployee,
-                     long rating, long totalCapital, int withdrwal) {
+                     long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployee, avrSalaryOfEmployee, rating, totalCapital);
-        this.withdrawal = withdrwal;
+        //this.withdrawal = withdrwal;
     }
 
     @Override
@@ -60,16 +60,16 @@ public class ChinaBank extends Bank {
     }
 
     @Override
-    public int getCommission() {
+    public double getCommission(int sum) {
         int commission = 0;
 
-        if (getCurrency() == Currency.USD && withdrawal <= 1000 ){
+        if (getCurrency() == Currency.USD && sum <= 1000 ){
             commission = 5; // at percentage
-        } else if(getCurrency() == Currency.USD && withdrawal > 1000){
+        } else if(getCurrency() == Currency.USD && sum > 1000){
             commission = 7; // at percentage
-        } else if(getCurrency() == Currency.EUR && withdrawal <= 1000){
+        } else if(getCurrency() == Currency.EUR && sum <= 1000){
             commission = 6; //at percentage
-        } else if(getCurrency() == Currency.EUR && withdrawal > 1000){
+        } else if(getCurrency() == Currency.EUR && sum > 1000){
             commission = 8;
         }
 
