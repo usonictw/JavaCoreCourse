@@ -8,8 +8,9 @@ public class DAOImplementation implements DAO {
     @Override
     public Room save(Room room) {
 
+        System.out.println("Saving room "+ room);
 
-        return null;
+        return room;
     }
 
     @Override
