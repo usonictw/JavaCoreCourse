@@ -7,22 +7,36 @@ package Module5.homework;
  API apis[] = new API[3];
  which contains all impelentations of API interface.
  Also, controller contains two methods
- Room[] requstRooms(int price, int persons, String city, String hotel)
+
+ Room[] requestRooms(int price, int persons, String city, String hotel)
  which finds all the rooms with requested params. Method use all apis available to make search.
  Found rooms create to DB
+
+ Room[] check(API api1, API api2)
+ Check how many the same rooms two different apis return
  */
 
 public class Controller {
 
-    private API[] apis;// = new API[3];
+    static private API[] apis = new API[3];
 
-    public Controller(API[] apis) {
-        this.apis = apis;
+
+    public Controller() {
+
+        apis[0] = new GoogleAPI();
+        apis[1] = new BookingComAPI();
+        apis[2] = new TripAdvisorAPI();
     }
 
-    Room[] requestRooms(int price, int persons, String city, String hotel){
+    public Room[] requestRooms(int price, int persons, String city, String hotel){
 
+        Room[] resultSearch = new Room[apis.length];
 
+        Controller controller = new Controller();
+
+        for (int i = 0; i < apis.length; i++) {
+            controller.apis[i].findRooms(price, persons, city, hotel);
+        }
         return null;
     }
 
@@ -32,4 +46,13 @@ public class Controller {
     }
 
 
+    public static void main(String[] args) {
+
+        Controller controller = new Controller();
+
+        controller.requestRooms(180, 2, "Kiev", "Hotel2");
+    }
 }
+
+
+
