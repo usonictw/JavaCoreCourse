@@ -46,7 +46,7 @@ public class Controller {
 
         Room[] resultSearch = apis[0].findRooms(price, persons, city, hotel);
         Room[] resultSearch1 = apis[1].findRooms(price, persons,city, hotel);
-        Room[] resultSearch2 = apis[1].findRooms(price, persons,city, hotel);
+        Room[] resultSearch2 = apis[2].findRooms(price, persons,city, hotel);
 
         Controller controller = new Controller();
 
@@ -72,6 +72,7 @@ public class Controller {
     public static void main(String[] args) {
 
         Controller controller = new Controller();
+
         controller.requestRooms(80, 1, "Kiev", "Hotel2");
 
 

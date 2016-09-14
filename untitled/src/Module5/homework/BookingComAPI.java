@@ -12,7 +12,7 @@ public class BookingComAPI implements API {
 
     public BookingComAPI() {
 
-        rooms[0] = new Room(0001, 180, 2, new Date(), "City Hotel", "Kiev");
+        rooms[0] = new Room(0001, 80, 1, new Date(), "Hotel2", "Kiev");
         rooms[1] = new Room(0002, 120, 1, new Date(), "CityRent", "Kiev");
         rooms[2] = new Room(0003, 80, 1, new Date(), "Hotel2", "Kiev");
         rooms[3] = new Room(0004, 280, 2, new Date(), "RoomRent", "Kiev");
@@ -45,4 +45,6 @@ public class BookingComAPI implements API {
                 "rooms=" + Arrays.toString(rooms) +
                 '}';
     }
+
+
 }

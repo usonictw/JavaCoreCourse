@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class GoogleAPI implements API {
 
-    private Room[] rooms = new Room[5];
+   private Room[] rooms = new Room[5];
 
     public GoogleAPI() {
 
@@ -20,7 +20,7 @@ public class GoogleAPI implements API {
     }
 
     @Override
-    public Room[] findRooms(int price, int person, String cityName, String hotel) {
+    public Room[] findRooms(int price, int person, String hotel, String cityName) {
 
         Room[] resultFindRoom = new Room[rooms.length]; //Array "resultFindRooms" initialization
         int newIndex = 0; // new array index
