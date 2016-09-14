@@ -18,7 +18,7 @@ package Module5.homework;
 
 public class Controller {
 
-    static private API[] apis = new API[3];
+    private API[] apis = new API[3];
 
 
     public Controller() {
@@ -31,22 +31,22 @@ public class Controller {
     public int getQuantityRooms(Room [] rooms){
 
         int quantity = 0;
-        for (int i = 0; i < rooms.length; i++ ){
-            if (rooms[i] != null){
+        for (Room i : rooms ){
+            if (i != null){
                 quantity++;
             }
         }
 
-    return quantity;
+        return quantity;
     }
 
-    public Room[] requestRooms(int price, int persons, String city, String hotel){
+    public Room[] requestRooms(int price, int person, String hotel, String city){
 
         //Room[] resultSearch = new Room[100];
 
-        Room[] resultSearch = apis[0].findRooms(price, persons, city, hotel);
-        Room[] resultSearch1 = apis[1].findRooms(price, persons,city, hotel);
-        Room[] resultSearch2 = apis[2].findRooms(price, persons,city, hotel);
+        Room[] resultSearch = apis[0].findRooms(price, person, hotel, city);
+        Room[] resultSearch1 = apis[1].findRooms(price, person, hotel, city);
+        Room[] resultSearch2 = apis[2].findRooms(price, person, hotel, city);
 
         Controller controller = new Controller();
 
@@ -58,13 +58,15 @@ public class Controller {
         Room[] totalArray = new Room[totalLengthNewArray];
         System.arraycopy(resultSearch, 0, totalArray, 0, a1);
         System.arraycopy(resultSearch1, 0, totalArray, a1, a2);
-        System.arraycopy(resultSearch2, 0, totalArray, a2, a3);
+        System.arraycopy(resultSearch2, 0, totalArray, a1+a2, a3);
 
 
         return totalArray;
     }
 
     Room[] check(API api1, API api2){
+
+
 
         return null;
     }
@@ -73,12 +75,16 @@ public class Controller {
 
         Controller controller = new Controller();
 
-        controller.requestRooms(80, 1, "Kiev", "Hotel2");
+        Room[] total = controller.requestRooms(80, 1, "CityRent", "Kiev");
 
 
+        for (Room i:total)
+            System.out.println(i);
 
 
     }
+
+
 }
 
 

@@ -76,21 +76,23 @@ public class Room {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Room)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Room room = (Room) o;
 
-        if (getPrice() != room.getPrice()) return false;
-        if (getPersons() != room.getPersons()) return false;
-        return getCityName().equals(room.getCityName());
+        if (price != room.price) return false;
+        if (persons != room.persons) return false;
+        if (hotelName != null ? !hotelName.equals(room.hotelName) : room.hotelName != null) return false;
+        return !(cityName != null ? !cityName.equals(room.cityName) : room.cityName != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = getPrice();
-        result = 31 * result + getPersons();
-        result = 31 * result + getCityName().hashCode();
+        int result = price;
+        result = 31 * result + persons;
+        result = 31 * result + (hotelName != null ? hotelName.hashCode() : 0);
+        result = 31 * result + (cityName != null ? cityName.hashCode() : 0);
         return result;
     }
 
