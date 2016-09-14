@@ -66,6 +66,15 @@ public class Controller {
 
     Room[] check(API api1, API api2){
 
+        int price = 80;
+        int person = 2;
+        String hotel = "CityRent";
+        String city = "Kiev";
+
+        Room[] res1 = api1.findRooms(price, person, city, hotel);
+        Room[] res2 = api2.findRooms(price, person, city, hotel);
+
+
 
 
         return null;
@@ -75,7 +84,7 @@ public class Controller {
 
         Controller controller = new Controller();
 
-        Room[] total = controller.requestRooms(80, 1, "CityRent", "Kiev");
+        Room[] total = controller.apis[0].findRooms();
 
 
         for (Room i:total)
