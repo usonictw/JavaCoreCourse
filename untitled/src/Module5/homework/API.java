@@ -6,4 +6,6 @@ package Module5.homework;
 public interface API {
 
     Room[] findRooms(int price, int person, String cityName, String hotel);
+
+
 }

@@ -28,16 +28,40 @@ public class Controller {
         apis[2] = new TripAdvisorAPI();
     }
 
+    public int getQuantityRooms(Room [] rooms){
+
+        int quantity = 0;
+        for (int i = 0; i < rooms.length; i++ ){
+            if (rooms[i] != null){
+                quantity++;
+            }
+        }
+
+    return quantity;
+    }
+
     public Room[] requestRooms(int price, int persons, String city, String hotel){
 
-        Room[] resultSearch = new Room[apis.length];
+        //Room[] resultSearch = new Room[100];
+
+        Room[] resultSearch = apis[0].findRooms(price, persons, city, hotel);
+        Room[] resultSearch1 = apis[1].findRooms(price, persons,city, hotel);
+        Room[] resultSearch2 = apis[1].findRooms(price, persons,city, hotel);
 
         Controller controller = new Controller();
 
-        for (int i = 0; i < apis.length; i++) {
-            controller.apis[i].findRooms(price, persons, city, hotel);
-        }
-        return null;
+        int a1 = controller.getQuantityRooms(resultSearch);
+        int a2 = controller.getQuantityRooms(resultSearch1);
+        int a3 = controller.getQuantityRooms(resultSearch2);
+
+        int totalLengthNewArray = a1+a2+a3;
+        Room[] totalArray = new Room[totalLengthNewArray];
+        System.arraycopy(resultSearch, 0, totalArray, 0, a1);
+        System.arraycopy(resultSearch1, 0, totalArray, a1, a2);
+        System.arraycopy(resultSearch2, 0, totalArray, a2, a3);
+
+
+        return totalArray;
     }
 
     Room[] check(API api1, API api2){
@@ -45,12 +69,14 @@ public class Controller {
         return null;
     }
 
-
     public static void main(String[] args) {
 
         Controller controller = new Controller();
+        controller.requestRooms(80, 1, "Kiev", "Hotel2");
 
-        controller.requestRooms(180, 2, "Kiev", "Hotel2");
+
+
+
     }
 }
 

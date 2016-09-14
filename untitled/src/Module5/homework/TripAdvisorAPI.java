@@ -1,5 +1,6 @@
 package Module5.homework;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -21,17 +22,29 @@ public class TripAdvisorAPI implements API {
     @Override
     public Room[] findRooms(int price, int person, String cityName, String hotel) {
 
-        Room[] resultFindRooms = new Room[5];
+        //Array "resultFindRooms" initialization
+        Room[] resultFindRooms = new Room[rooms.length];
 
-        for (int i = 0; i < 5; i++){
+        // new array index
+        int newIndex = 0;
+
+        // this loop compare input parameters to the parameters of rooms and creates new sorted array
+        for (int i = 0; i < rooms.length; i++){
             if (rooms[i].equals(new Room(0003, price, person, new Date(), hotel, cityName))){
-
-                resultFindRooms[i] = rooms[i];
+                resultFindRooms[newIndex] = rooms[i];
+                newIndex++;
             }
             else{
-                resultFindRooms[i] = null;
+                resultFindRooms[rooms.length-1-i+newIndex] = null;
             }
         }
         return resultFindRooms;
+    }
+
+    @Override
+    public String toString() {
+        return "TripAdvisorAPI{" +
+                "rooms=" + Arrays.toString(rooms) +
+                '}';
     }
 }

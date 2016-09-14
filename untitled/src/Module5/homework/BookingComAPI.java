@@ -1,5 +1,6 @@
 package Module5.homework;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -22,17 +23,26 @@ public class BookingComAPI implements API {
     @Override
     public Room[] findRooms(int price, int person, String cityName, String hotel) {
 
-        Room[] resultFindRooms = new Room[5];
-        for (int i=0; i<5; i++) {
+        Room[] resultFindRooms = new Room[rooms.length]; //Array "resultFindRooms" initialization
+        int newIndex = 0; // new array index
+
+        // this loop compare input parameters to the parameters of rooms and creates new sorted array
+        for (int i=0; i<rooms.length; i++) {
             if (rooms[i].equals(new Room(0001, price, person, new Date(), hotel, cityName))) {
-            resultFindRooms[i] = rooms[i];
+            resultFindRooms[newIndex] = rooms[i];
+                newIndex++;
             }
             else{
-                resultFindRooms[i] = null;
+                resultFindRooms[rooms.length-1-i+newIndex] = null;
             }
         }
         return resultFindRooms;
     }
 
-
+    @Override
+    public String toString() {
+        return "BookingComAPI{" +
+                "rooms=" + Arrays.toString(rooms) +
+                '}';
+    }
 }
