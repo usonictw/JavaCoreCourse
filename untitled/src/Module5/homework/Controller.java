@@ -5,7 +5,7 @@ package Module5.homework;
  *
  * Create Controller class. It contains global variable
  API apis[] = new API[3];
- which contains all impelentations of API interface.
+ which contains all implementations of API interface.
  Also, controller contains two methods
 
  Room[] requestRooms(int price, int persons, String city, String hotel)
@@ -67,27 +67,43 @@ public class Controller {
     Room[] check(API api1, API api2){
 
         int price = 80;
-        int person = 2;
+        int person = 1;
         String hotel = "CityRent";
         String city = "Kiev";
 
-        Room[] res1 = api1.findRooms(price, person, city, hotel);
-        Room[] res2 = api2.findRooms(price, person, city, hotel);
+        Room[] res1 = api1.findRooms(price, person, hotel, city);
+        Room[] res2 = api2.findRooms(price, person, hotel, city);
+
+        Room[] resCheck = new Room[res1.length];
+        for (int i = 0; i < res1.length; i++) {
+            if ((res1[i].equals(res2[i]) && (res1[i] != null && res2[i] != null))) {
+                //System.out.println("Founded equal rooms");
+                resCheck[i] = res1[i];
+            }
+
+        }
+        Controller controller = new Controller();
+        int getQuantityRoom = controller.getQuantityRooms(resCheck);
+        System.out.println("Founded "+getQuantityRoom+" room(s)");
+
+        Room[] newResCheck = new Room[getQuantityRoom];
+        System.arraycopy(resCheck, 0, newResCheck, 0, getQuantityRoom);
+
+        if (getQuantityRoom == 0) System.out.println("NO matches");
 
 
-
-
-        return null;
+        return newResCheck;
     }
 
-    public static void main(String[] args) {
+   public static void main(String[] args) {
 
         Controller controller = new Controller();
 
-        Room[] total = controller.apis[0].findRooms();
+
+        Room[] check = controller.check(controller.apis[0], controller.apis[1]);
 
 
-        for (Room i:total)
+        for (Room i:check)
             System.out.println(i);
 
 
