@@ -56,7 +56,7 @@ public class Main {
         System.out.println();
         controller.check(googleAPI, tripAdvisorAPI);
 
-        //...output information from DAOimplementation
+        //...print information from DAOimplementation
 
         DAOImplementation daoImplementation = new DAOImplementation();
 
