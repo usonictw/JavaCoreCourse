@@ -70,9 +70,6 @@ public class Main {
         daoImplementation.findById(rooms[0]);
 
 
-
-
-
     }
 
 

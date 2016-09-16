@@ -30,6 +30,7 @@ public class Controller {
         apis[2] = new TripAdvisorAPI();
     }
 
+    // method for counting number of rooms (!null)
     public int getQuantityRooms(Room [] rooms){
 
         //Room rooms1 = new Room(0, 0, 0, null, null, null);
@@ -51,16 +52,16 @@ public class Controller {
         Room[] resultSearch1 = apis[1].findRooms(price, person, hotel, city);
         Room[] resultSearch2 = apis[2].findRooms(price, person, hotel, city);
 
-        int a1 = getQuantityRooms(resultSearch);
-        int a2 = getQuantityRooms(resultSearch1);
-        int a3 = getQuantityRooms(resultSearch2);
+        //counting total number of the rooms founding via API
+        int totalLengthNewArray = getQuantityRooms(resultSearch)+getQuantityRooms(resultSearch1)+getQuantityRooms(resultSearch2);
 
-        int totalLengthNewArray = a1+a2+a3;
+        // create new array and fill it (i.e. combine 3 arrays)
         Room[] totalArray = new Room[totalLengthNewArray];
-        System.arraycopy(resultSearch, 0, totalArray, 0, a1);
-        System.arraycopy(resultSearch1, 0, totalArray, a1, a2);
-        System.arraycopy(resultSearch2, 0, totalArray, a1+a2, a3);
+        System.arraycopy(resultSearch, 0, totalArray, 0, getQuantityRooms(resultSearch));
+        System.arraycopy(resultSearch1, 0, totalArray, getQuantityRooms(resultSearch), getQuantityRooms(resultSearch1));
+        System.arraycopy(resultSearch2, 0, totalArray, getQuantityRooms(resultSearch)+getQuantityRooms(resultSearch1), getQuantityRooms(resultSearch2));
 
+        //...print to console
         System.out.println("Founded "+ totalLengthNewArray+ " rooms");
         System.out.println(Arrays.toString(totalArray));
 
@@ -68,8 +69,10 @@ public class Controller {
         return totalArray;
     }
 
+    // method for checking matches of the rooms in API
     Room[] check(API api1, API api2){
 
+        //...founding matches
         Room[] resCheck = new Room[api1.getAllRooms().length];
         for(int i = 0; i < api1.getAllRooms().length; i++)
         if(api1.getAllRooms()[i].equals(api2.getAllRooms()[i])){
@@ -77,6 +80,7 @@ public class Controller {
 
         }
 
+        //... founding number matches of the rooms and print to the console
         int getQuantityRoom = getQuantityRooms(resCheck);
         System.out.println("Founded "+getQuantityRoom+" matches room(s)");
         System.out.println(Arrays.toString(resCheck));
