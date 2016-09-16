@@ -12,11 +12,16 @@ public class TripAdvisorAPI implements API {
 
     public TripAdvisorAPI() {
 
-        rooms[0] = new Room(0001, 80, 1, new Date(), "CityRent", "Kiev");
+        rooms[0] = new Room(0001, 180, 2, new Date(), "City Hotel", "Kiev");
         rooms[1] = new Room(0002, 80, 1, new Date(), "CityRent", "Kiev");
         rooms[2] = new Room(0003, 80, 1, new Date(), "CityRent", "Kiev");
         rooms[3] = new Room(0004, 80, 1, new Date(), "CityRent", "Kiev");
         rooms[4] = new Room(0005, 80, 1, new Date(), "CityRent", "Kiev");
+    }
+
+    @Override
+    public Room[] getAllRooms() {
+        return rooms;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package Module5.homework;
 
+import java.util.Arrays;
+
 /**
  * Created by user on 12.09.2016.
  *
@@ -30,9 +32,10 @@ public class Controller {
 
     public int getQuantityRooms(Room [] rooms){
 
+        //Room rooms1 = new Room(0, 0, 0, null, null, null);
         int quantity = 0;
         for (Room i : rooms ){
-            if (i != null){
+            if ( i!=null ){
                 quantity++;
             }
         }
@@ -48,11 +51,9 @@ public class Controller {
         Room[] resultSearch1 = apis[1].findRooms(price, person, hotel, city);
         Room[] resultSearch2 = apis[2].findRooms(price, person, hotel, city);
 
-        Controller controller = new Controller();
-
-        int a1 = controller.getQuantityRooms(resultSearch);
-        int a2 = controller.getQuantityRooms(resultSearch1);
-        int a3 = controller.getQuantityRooms(resultSearch2);
+        int a1 = getQuantityRooms(resultSearch);
+        int a2 = getQuantityRooms(resultSearch1);
+        int a3 = getQuantityRooms(resultSearch2);
 
         int totalLengthNewArray = a1+a2+a3;
         Room[] totalArray = new Room[totalLengthNewArray];
@@ -60,13 +61,32 @@ public class Controller {
         System.arraycopy(resultSearch1, 0, totalArray, a1, a2);
         System.arraycopy(resultSearch2, 0, totalArray, a1+a2, a3);
 
+        System.out.println("Founded "+ totalLengthNewArray+ " rooms");
+        System.out.println(Arrays.toString(totalArray));
+
 
         return totalArray;
     }
 
     Room[] check(API api1, API api2){
 
-        int price = 80;
+        Room[] resCheck = new Room[api1.getAllRooms().length];
+        for(int i = 0; i < api1.getAllRooms().length; i++)
+        if(api1.getAllRooms()[i].equals(api2.getAllRooms()[i])){
+            resCheck[i] = api1.getAllRooms()[i];
+
+        }
+
+        int getQuantityRoom = getQuantityRooms(resCheck);
+        System.out.println("Founded "+getQuantityRoom+" matches room(s)");
+        System.out.println(Arrays.toString(resCheck));
+
+
+
+
+
+
+       /* int price = 80;
         int person = 1;
         String hotel = "CityRent";
         String city = "Kiev";
@@ -76,13 +96,14 @@ public class Controller {
 
         Room[] resCheck = new Room[res1.length];
         for (int i = 0; i < res1.length; i++) {
-            if ((res1[i].equals(res2[i]) && (res1[i] != null && res2[i] != null))) {
+            if ((res1[i].equals(res2[i]))) {
                 //System.out.println("Founded equal rooms");
                 resCheck[i] = res1[i];
+            }else {
+                resCheck[i] = new Room(0, 0, 0, null, null, null);
             }
 
         }
-        Controller controller = new Controller();
         int getQuantityRoom = controller.getQuantityRooms(resCheck);
         System.out.println("Founded "+getQuantityRoom+" room(s)");
 
@@ -92,22 +113,23 @@ public class Controller {
         if (getQuantityRoom == 0) System.out.println("NO matches");
 
 
-        return newResCheck;
+        */
+        return resCheck;
     }
 
-   public static void main(String[] args) {
+   /*public static void main(String[] args) {
 
         Controller controller = new Controller();
 
 
-        Room[] check = controller.check(controller.apis[0], controller.apis[1]);
+        Room[] check = controller.check(controller.apis[1], controller.apis[0]);
 
 
         for (Room i:check)
             System.out.println(i);
 
 
-    }
+    }*/
 
 
 }

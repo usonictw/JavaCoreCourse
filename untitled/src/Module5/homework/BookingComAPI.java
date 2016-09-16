@@ -16,9 +16,15 @@ public class BookingComAPI implements API {
         rooms[1] = new Room(0002, 80, 3, new Date(), "CityRent", "Kiev");
         rooms[2] = new Room(0003, 80, 2, new Date(), "CityRent", "Kiev");
         rooms[3] = new Room(0004, 80, 2, new Date(), "CityRent", "Kiev");
-        rooms[4] = new Room(0005, 80, 1, new Date(), "CityRent", "Kiev");
+        rooms[4] = new Room(0005, 80, 4, new Date(), "CityRent", "Kiev");
 
 
+    }
+
+    @Override
+    public Room[] getAllRooms() {
+
+        return rooms;
     }
 
     @Override

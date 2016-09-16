@@ -19,22 +19,28 @@ public class GoogleAPI implements API {
         rooms[4] = new Room(0005, 80, 1, new Date(), "CityRent", "Kiev");
     }
 
+
+    @Override
+    public Room[] getAllRooms() {
+        return rooms;
+    }
+
     @Override
     public Room[] findRooms(int price, int person, String hotel, String cityName) {
 
-        Room[] resultFindRoom = new Room[rooms.length]; //Array "resultFindRooms" initialization
+        Room[] resultFindRooms = new Room[rooms.length]; //Array "resultFindRooms" initialization
         int newIndex = 0; // new array index
 
         // this loop compare input parameters to the parameters of rooms and creates new sorted array
         for (int i = 0; i < rooms.length; i++){
             if (rooms[i].equals(new Room(0002, price, person, new Date(), hotel, cityName))){
-              resultFindRoom[newIndex] = rooms[i];
+              resultFindRooms[newIndex] = rooms[i];
                 newIndex++;
             } else{
-                resultFindRoom[rooms.length-1-i+newIndex] = null;
+                resultFindRooms[rooms.length-1-i+newIndex] = null;
             }
         }
-        return resultFindRoom;
+        return resultFindRooms;
     }
 
     @Override

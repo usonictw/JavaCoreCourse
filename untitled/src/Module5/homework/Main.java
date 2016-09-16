@@ -1,5 +1,6 @@
 package Module5.homework;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -8,6 +9,7 @@ import java.text.SimpleDateFormat;
  * Created by user on 12.09.2016.
  */
 public class Main {
+
 
     public static void main(String[] args) {
 
@@ -45,7 +47,9 @@ public class Main {
         Controller controller = new Controller();
 
         controller.requestRooms(price, person, hotel, cityName);
-        controller.check(googleAPI, bookingComAPI);
+        System.out.println();
+        controller.check(bookingComAPI, googleAPI);
+
 
 
 
