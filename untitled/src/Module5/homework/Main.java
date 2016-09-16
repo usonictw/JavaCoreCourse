@@ -49,6 +49,24 @@ public class Main {
         controller.requestRooms(price, person, hotel, cityName);
         System.out.println();
         controller.check(bookingComAPI, googleAPI);
+        System.out.println();
+        controller.check(bookingComAPI, tripAdvisorAPI);
+        System.out.println();
+        controller.check(googleAPI, tripAdvisorAPI);
+
+        //...
+
+        DAOImplementation daoImplementation = new DAOImplementation();
+
+        System.out.println();
+        daoImplementation.delete(rooms[0]);
+        System.out.println();
+        daoImplementation.save(rooms[1]);
+        System.out.println();
+        daoImplementation.upDate(rooms[2]);
+        System.out.println();
+        daoImplementation.findById(rooms[0]);
+
 
 
 
