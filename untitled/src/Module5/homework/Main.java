@@ -34,7 +34,7 @@ public class Main {
         GoogleAPI googleAPI = new GoogleAPI();
         TripAdvisorAPI tripAdvisorAPI = new TripAdvisorAPI();
 
-        //search parameters
+        //input parameters
 
         int price = 180;
         int person = 2;
@@ -42,19 +42,21 @@ public class Main {
         String cityName =  "Kiev";
 
 
-        // ...
+        // ...find rooms on the input parameters
 
         Controller controller = new Controller();
 
         controller.requestRooms(price, person, hotel, cityName);
         System.out.println();
+
+        //...to check matches rooms in the API
         controller.check(bookingComAPI, googleAPI);
         System.out.println();
         controller.check(bookingComAPI, tripAdvisorAPI);
         System.out.println();
         controller.check(googleAPI, tripAdvisorAPI);
 
-        //...
+        //...output information from DAOimplementation
 
         DAOImplementation daoImplementation = new DAOImplementation();
 
