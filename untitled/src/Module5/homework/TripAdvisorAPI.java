@@ -31,17 +31,17 @@ public class TripAdvisorAPI implements API {
         Room[] resultFindRooms = new Room[rooms.length];
 
         // new array index
-        int newIndex = 0;
+        //int newIndex = 0;
 
         // this loop compare input parameters to the parameters of rooms and creates new sorted array
         for (int i = 0; i < rooms.length; i++){
             if (rooms[i].equals(new Room(0003, price, person, new Date(), hotel, cityName))){
-                resultFindRooms[newIndex] = rooms[i];
-                newIndex++;
+                resultFindRooms[i] = rooms[i];
+                //newIndex++;
             }
-            else{
+            /*else{
                 resultFindRooms[rooms.length-1-i+newIndex] = null;
-            }
+            }*/
         }
         return resultFindRooms;
     }
