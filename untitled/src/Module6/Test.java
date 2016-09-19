@@ -1,8 +1,6 @@
 package Module6;
 
-import Module4.homework.USBank;
 
-import java.util.Arrays;
 
 /**
  * Created by PC on ${DATA}.
@@ -42,7 +40,11 @@ public class Test {
         System.out.println();
         test.printToConsole(UserUtils.paySalaryToUsers(users));
         System.out.println();
-        UserUtils.getUsersId(users);
+        //UserUtils.getUsersId(users);
+
+        for (int i = 0; i < users.length; i++) {
+            System.out.println(UserUtils.getUsersId(users)[i]);
+        }
 
 
 
