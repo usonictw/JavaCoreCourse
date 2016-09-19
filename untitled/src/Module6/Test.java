@@ -1,8 +1,5 @@
 package Module6;
 
-import Module4.homework.USBank;
-
-import java.util.Arrays;
 
 /**
  * Created by PC on ${DATA}.
