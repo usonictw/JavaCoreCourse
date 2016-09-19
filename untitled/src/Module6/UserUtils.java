@@ -7,31 +7,49 @@ public final class UserUtils {
 
     public User[] uniqueUsers(User[] users){
 
-        for (int i = 0; i < users.length; i++)
-        if(users[0].equals(users[i])){
-            users[i] = null;
-        }
+        for (int j = 0; j < users.length-1; j++) {
+            if(users[j] != null){
 
-        return users;
-    }
-    public User[] usersWithConditionalBalance(User[] users, int balance){
+                for (int i = j; i < users.length-1; i++) {
+                    if (users[j].equals(users[i+1])) {
+                        for (int k = i; k < users.length - 1; k++) {
+                            if (k+1 == users.length-1) {
+                                users[k + 1] = null;
+                            } else {
+                                users[k] = users[k + 1];
+                                users[k + 1] = null;
+                            }
+                        }
+                        i--;
+                    }
 
-        if(balance < 0){
-            System.out.println("Balance have to be more than 0");
-        }else {
-            for (int i = 0; i < users.length; i++) {
-                users[i].setBalance(balance);
+                }
             }
         }
 
         return users;
     }
+
+    public User[] usersWithConditionalBalance(User[] users, int balance){
+
+        if(balance < 0){
+            System.out.println("Balance have to be more than 0");
+        }else {
+            for (User i : users) {
+                i.setBalance(balance);
+            }
+        }
+
+        return users;
+    }
+
     public static User[] paySalaryToUsers(User[] users){
         for(User i : users){
             i.setBalance(i.getBalance()+i.getSalary());
         }
         return  users;
     }
+
     public  static long[] getUsersId(User[] users){
 
         long[] getUserId = new long[users.length];
@@ -56,6 +74,10 @@ public final class UserUtils {
         User[] newUserArray = new  User[quantity];
         System.arraycopy(sortUser, 0, newUserArray, 0, quantity);
 
+
+
         return  newUserArray;
     }
+
+
 }
