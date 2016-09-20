@@ -5,6 +5,7 @@ package Module6;
  */
 public final class UserUtils {
 
+    //-----------------------------------------------------Search duplicate user with a shift method----------------------------------------------------------
     public User[] uniqueUsers(User[] users){
 
         for (int j = 0; j < users.length-1; j++) {
@@ -30,6 +31,7 @@ public final class UserUtils {
         return users;
     }
 
+    //---------------------------------------------------------------------------add Balance to Users----------------------------------------------------------------
     public User[] usersWithConditionalBalance(User[] users, int balance){
 
         if(balance < 0){
@@ -43,6 +45,7 @@ public final class UserUtils {
         return users;
     }
 
+    //-----------------------------------------------------------------------Add salary to balance method--------------------------------------------------------------------------
     public static User[] paySalaryToUsers(User[] users){
         for(User i : users){
             i.setBalance(i.getBalance()+i.getSalary());
@@ -50,6 +53,7 @@ public final class UserUtils {
         return  users;
     }
 
+    //------------------------------------------------------------------------get ID Users---------------------------------------------------------------------------
     public  static long[] getUsersId(User[] users){
 
         long[] getUserId = new long[users.length];
@@ -62,6 +66,7 @@ public final class UserUtils {
     }
 
 
+    //---------------------------------------------------------Search empty (null) users and create new users array----------------------------------------------------
     public User[] deleteEmptyUsers(User[] users){
 
         User[] sortUser = new User[users.length];
