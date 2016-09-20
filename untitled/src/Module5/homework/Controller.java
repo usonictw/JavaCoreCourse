@@ -72,18 +72,39 @@ public class Controller {
     // method for checking matches of the rooms in API
     Room[] check(API api1, API api2){
 
-        //...founding matches
-        Room[] resCheck = new Room[api1.getAllRooms().length];
-        for(int i = 0; i < api1.getAllRooms().length; i++)
-        if(api1.getAllRooms()[i].equals(api2.getAllRooms()[i])){
-            resCheck[i] = api1.getAllRooms()[i];
 
+        int index1 = 1;
+        int matches = 0;
+        for (Room room1 : api1.getAllRooms()) {
+            if(room1.equals(api1.getAllRooms()[index1++]) && index1 < api1.getAllRooms().length){
+                matches++;
+            }
+            for (Room room2 : api2.getAllRooms()) {
+                if (room1.equals(room2)){
+
+                }
+            }
         }
 
+
+
+
+
+        //...founding matches
+        /*Room[] resCheck = new Room[api1.getAllRooms().length];
+        for(int i = 0; i < api1.getAllRooms().length; i++)
+            if(api1.getAllRooms()[i].equals(api2.getAllRooms()[i])){
+                resCheck[i] = api1.getAllRooms()[i];
+
+            }*/
+
+
+
+
         //... founding number matches of the rooms and print to the console
-        int getQuantityRoom = getQuantityRooms(resCheck);
-        System.out.println("Founded "+getQuantityRoom+" matches room(s)");
-        System.out.println(Arrays.toString(resCheck));
+       // int getQuantityRoom = getQuantityRooms(resCheck);
+        //System.out.println("Founded "+getQuantityRoom+" matches room(s)");
+       // System.out.println(Arrays.toString(resCheck));
 
 
 
@@ -118,7 +139,7 @@ public class Controller {
 
 
         */
-        return resCheck;
+        return null;
     }
 
    /*public static void main(String[] args) {
