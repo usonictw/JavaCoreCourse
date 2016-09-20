@@ -56,6 +56,7 @@ public final class UserUtils {
         int k = 0;
         for(User i : users){
             getUserId[k] = i.getId();
+            k++;
         }
         return getUserId;
     }
