@@ -13,10 +13,10 @@ public class BookingComAPI implements API {
     public BookingComAPI() {
 
         rooms[0] = new Room(0001, 180, 1, new Date(), "City Hotel", "Kiev");
-        rooms[1] = new Room(0002, 180, 2, new Date(), "City Hotel", "Kiev");
-        rooms[2] = new Room(0003, 180, 3, new Date(), "City Hotel", "Kiev");
-        rooms[3] = new Room(0004, 180, 4, new Date(), "City Hotel", "Kiev");
-        rooms[4] = new Room(0005, 180, 5, new Date(), "City Hotel", "Kiev");
+        rooms[1] = new Room(0002, 180, 1, new Date(), "City Hotel", "Kiev");
+        rooms[2] = new Room(0003, 180, 2, new Date(), "City Hotel", "Kiev");
+        rooms[3] = new Room(0004, 180, 2, new Date(), "City Hotel", "Kiev");
+        rooms[4] = new Room(0005, 180, 1, new Date(), "City Hotel", "Kiev");
 
 
     }

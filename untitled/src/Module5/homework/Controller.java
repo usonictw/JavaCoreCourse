@@ -1,5 +1,7 @@
 package Module5.homework;
 
+import Module6.ArraysUtils;
+
 import java.util.Arrays;
 
 /**
@@ -73,20 +75,36 @@ public class Controller {
     Room[] check(API api1, API api2){
 
 
-        int index1 = 1;
+        Room[] matchesRoom = new Room[api1.getAllRooms().length+api2.getAllRooms().length];
+
+        int index =0;
         int matches = 0;
         for (Room room1 : api1.getAllRooms()) {
-            if(room1.equals(api1.getAllRooms()[index1++]) && index1 < api1.getAllRooms().length){
-                matches++;
-            }
             for (Room room2 : api2.getAllRooms()) {
                 if (room1.equals(room2)){
-
+                    matches++;
                 }
+            }
+            if(matches > 0) {
+                matchesRoom[index] = room1;
+                index++;
+                matches = 0;
             }
         }
 
 
+        Room[] rooms = new Room[index];
+        if(index == 0){
+            System.out.println("no matches");
+        }else {
+
+            System.arraycopy(matchesRoom, 0, rooms, 0, index);
+            rooms = ArraysUtils.deleteEmptyRoom(ArraysUtils.uniqueRooms(rooms));
+            System.out.println(index+ " matches founded for room(s): ");
+            for (Room printRooms : rooms){
+                System.out.println(printRooms);
+            }
+        }
 
 
 
@@ -139,7 +157,7 @@ public class Controller {
 
 
         */
-        return null;
+        return rooms;
     }
 
    /*public static void main(String[] args) {

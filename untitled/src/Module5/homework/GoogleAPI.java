@@ -12,11 +12,11 @@ public class GoogleAPI implements API {
 
     public GoogleAPI() {
 
-        rooms[0] = new Room(0001, 180, 2, new Date(), "City Hotel", "Kiev");
+        rooms[0] = new Room(0001, 180, 1, new Date(), "City Hotel", "Kiev");
         rooms[1] = new Room(0002, 180, 1, new Date(), "City Hotel", "Kiev");
-        rooms[2] = new Room(0003, 180, 6, new Date(), "City Hotel", "Kiev");
-        rooms[3] = new Room(0004, 180, 7, new Date(), "City Hotel", "Kiev");
-        rooms[4] = new Room(0005, 180, 8, new Date(), "City Hotel", "Kiev");
+        rooms[2] = new Room(0003, 180, 1, new Date(), "City Hotel", "Kiev");
+        rooms[3] = new Room(0004, 180, 2, new Date(), "City Hotel", "Kiev");
+        rooms[4] = new Room(0005, 180, 2, new Date(), "City Hotel", "Kiev");
     }
 
 
