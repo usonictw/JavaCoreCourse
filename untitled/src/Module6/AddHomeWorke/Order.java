@@ -9,13 +9,13 @@ public class Order {
     private Date date;
     private User user;
     private Item item;
-    private int counter;
+    private static int counter;
 
     private boolean isActive = true;
     private boolean isShipped = false;
 
-    public Order(Date date, User user, Item item, boolean isActive, boolean isShipped) {
-        this.date = date;
+    public Order(User user, Item item) {
+
         this.user = user;
         this.item = item;
 
@@ -23,6 +23,28 @@ public class Order {
         this.isShipped = false;
     }
 
+    public Date getDate() {
+        return date;
+    }
 
+    public User getUser() {
+        return user;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public boolean isShipped() {
+        return isShipped;
+    }
 }
 
