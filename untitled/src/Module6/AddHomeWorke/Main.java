@@ -8,14 +8,16 @@ public class Main {
     public static void main(String[] args) {
 
         Controller controller = new Controller();
-        User user = new User(001, "John", "Johnatan", "Lutsk", "0657654321");
+        User user = new User(001, "John", "Johnatan", "Kiev", "0657654321");
 
         Item item = new Item();
         item.setProducerName("Samsung");
-        item.setCityStore("Kiev");
-        item.setItemName("Galaxy Note 3");
+        //item.setCityStore("Kiev");
+        item.setItemName("Galaxy Note3");
 
         controller.makeOrder(user, item);
+
+
 
     }
 }

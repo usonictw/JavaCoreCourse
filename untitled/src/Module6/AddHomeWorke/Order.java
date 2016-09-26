@@ -9,10 +9,11 @@ public class Order {
     private Date date;
     private User user;
     private Item item;
+
     private static int counter;
 
-    private boolean isActive = true;
-    private boolean isShipped = false;
+    private boolean isActive;
+    private boolean isShipped;
 
     public Order(User user, Item item) {
 
@@ -45,6 +46,18 @@ public class Order {
 
     public boolean isShipped() {
         return isShipped;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public void setIsShipped(boolean isShipped) {
+        this.isShipped = isShipped;
+    }
+
+    public static void setCounter(int counter) {
+        Order.counter = counter;
     }
 }
 
