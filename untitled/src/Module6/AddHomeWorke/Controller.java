@@ -13,13 +13,24 @@ public class Controller {
 
         Item[] items = store.getItems();
 
+        int counterStore = 0;
         for (Item storeItem : items){
-
-            if(storeItem.getCityStore().equals(item.getCityStore())){
-
-                System.out.println("Order true");
+            if(storeItem.getCityStore().equals(user.getCity())){
+                //System.out.println("store true");
+                counterStore++;
             }
         }
+    if (counterStore > 0) {
+        System.out.println("Store in the city you entered is in the amount " + counterStore);
+    } else{
+        System.out.println("Store in the city you entered is not");
+        System.out.println("Store's list by city");
+        System.out.println();
+        for (Item storeCity : items){
+            System.out.println(storeCity.getCityStore());
+        }
+    }
+
     }
 
 }

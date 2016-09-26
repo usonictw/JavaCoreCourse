@@ -8,17 +8,17 @@ public class Item {
     private long id;
     private String producerName;
     private String itemName;
-    private String cityStore;
+    //private String cityStore;
     private double price;
 
 
     public Item() {
     }
 
-    public Item(long id, String itemName, String cityStore, double price, String producerName) {
+    public Item(long id, String itemName, double price, String producerName) {
         this.id = id;
         this.itemName = itemName;
-        this.cityStore = cityStore;
+        //this.cityStore = cityStore;
         this.price = price;
         this.producerName = producerName;
     }
@@ -31,9 +31,9 @@ public class Item {
         return itemName;
     }
 
-    public String getCityStore() {
+    /*public String getCityStore() {
         return cityStore;
-    }
+    }*/
 
     public double getPrice() {
         return price;
@@ -51,7 +51,7 @@ public class Item {
         this.itemName = itemName;
     }
 
-    public void setCityStore(String cityStore) {
+    /*public void setCityStore(String cityStore) {
         this.cityStore = cityStore;
-    }
+    }*/
 }

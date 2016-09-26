@@ -1,5 +1,7 @@
 package Module6;
 
+import Module5.homework.Room;
+
 /**
  * Created by PC on ${DATA}.
  */
@@ -165,18 +167,49 @@ public final class ArraysUtils {
         return  evenElements;
     }
 
-    public static void main(String[] args) {
+   //--------------------------------------------------Search duplicate with a shift------------------------------------------------------------
 
-        int[] array = new int[5];
+    static public Room[] uniqueRooms(Room[] rooms) {
 
-        array[0] = 1;
-        array[1] = 2;
-        array[2] = 3;
-        array[3] = 4;
-        array[4] = 5;
+        for (int j = 0; j < rooms.length - 1; j++) {
+            if (rooms[j] != null) {
 
-        findEvenElements(array);
+                for (int i = j; i < rooms.length - 1; i++) {
+                    if (rooms[j].equals(rooms[i + 1])) {
+                        for (int k = i; k < rooms.length - 1; k++) {
+                            if (k + 1 == rooms.length - 1) {
+                                rooms[k + 1] = null;
+                            } else {
+                                rooms[k] = rooms[k + 1];
+                                rooms[k + 1] = null;
+                            }
+                        }
+                        i--;
+                    }
 
+                }
+            }
+        }
+
+        return rooms;
+    }
+
+    static public Room[] deleteEmptyRoom(Room[] rooms){
+
+        Room[] sortRoom = new Room[rooms.length];
+        int quantity = 0;
+        for (Room i : rooms){
+            if ( i!=null ){
+                sortRoom[quantity] = i;
+                quantity++;
+            }
+        }
+        Room[] newUserArray = new  Room[quantity];
+        System.arraycopy(sortRoom, 0, newUserArray, 0, quantity);
+
+
+
+        return  newUserArray;
     }
 }
 
