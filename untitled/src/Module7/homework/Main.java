@@ -8,7 +8,10 @@ import java.util.*;
  */
 public class Main {
 
+
+
     public static void main(String[] args) {
+
 
 
         List<User> listUser = new ArrayList<User>();
@@ -19,7 +22,7 @@ public class Main {
         listUser.add(new User(0001, "John", "Johnaton", "NY", 100));
         listUser.add(new User(0002, "John1", "Johnaton1", "LA", 200));
         listUser.add(new User(0003, "John2", "Johnaton2", "Huston", 150));
-        listUser.add(new User(0004, "John3", "Johnaton3", "AMassachusets", 160));
+        listUser.add(new User(0004, "John3", "Johnaton3", "LA", 160));
         listUser.add(new User(0005, "John4", "Johnaton4", "Washington", 120));
         listUser.add(new User(0006, "John5", "Johnaton5", "NY", 160));
         listUser.add(new User(0007, "John6", "Johnaton6", "NY2", 130));
@@ -47,11 +50,7 @@ public class Main {
         }
         System.out.println();
 
-        listOrder.sort(new ComparatorIncrease());
-        for(int i = 0; i < listOrder.size(); i++) {
-            System.out.println(listOrder.get(i));
-        }
-        System.out.println();
+
 
         listOrder.sort(new ComparatorIncreaseAndUserCity());
         for(Order o : listOrder){
@@ -74,27 +73,63 @@ public class Main {
         listOrder.clear();
         listOrder.addAll(setOrder);
 
-        for(Order o : listOrder) {
-            System.out.println(o);
-        }
 
-        int[] index = new int[listOrder.size()];
-        for(int i = 0; i < listOrder.size(); i++){
-            if(listOrder.get(i).getPrice() < 1500){
-                index[i] = i+1;
-            } else index[i] = 0;
-        }
+        listOrder.sort(new ComparatorIncrease());
 
-        for(int i : index){
-            if (i!=0){
-                listOrder.remove(i-1);
+        List<Order> orderListM = new ArrayList<Order>(listOrder);
+
+        for(int i = 0; i < orderListM.size(); i++) {
+            System.out.println(listOrder.get(i));
+        }
+        System.out.println();
+
+        Iterator<Order> iterator = orderListM.iterator();
+
+        while(iterator.hasNext()){
+
+            Order o = iterator.next();
+            if(o.getPrice() < 1500){
+                iterator.remove();
             }
         }
 
-        System.out.println();
-        for(Order o : listOrder) {
-            System.out.println(o);
+
+
+        List<Order> list1 = new ArrayList<Order>();
+        List<Order> list2 = new ArrayList<Order>();
+
+        for(int i = 0; i < listOrder.size(); i++){
+
+            if(listOrder.get(i).getCurrency() == Currency.UAH){
+                list1.add(listOrder.get(i));
+            } else {
+                list2.add(listOrder.get(i));
+            }
         }
+
+        for(int i = 0; i < list1.size(); i++) {
+            System.out.println(list1.get(i));
+        }
+        System.out.println();
+
+        for(int i = 0; i < list2.size(); i++) {
+            System.out.println(list2.get(i));
+        }
+
+        // Searching quantity City uniq
+
+
+        for(int i = 0; i < listOrder.size()-1; i++){
+            int counter = 0;
+            for (int j = i+1; j < listOrder.size(); j++){
+                if(listOrder.get(i).getUser().getCity().equals(listOrder.get(j).getUser().getCity())){
+                  counter++;
+                }
+
+            }
+        }
+
+
 
 
     }
