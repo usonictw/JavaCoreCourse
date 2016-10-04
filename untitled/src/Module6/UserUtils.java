@@ -6,7 +6,7 @@ package Module6;
 public final class UserUtils {
 
     //-----------------------------------------------------Search duplicate user with a shift method----------------------------------------------------------
-    public User[] uniqueUsers(User[] users){
+   public static User[] uniqueUsers(User[] users){
 
         for (int j = 0; j < users.length-1; j++) {
             if(users[j] != null){
@@ -32,7 +32,7 @@ public final class UserUtils {
     }
 
     //---------------------------------------------------------------------------add Balance to Users----------------------------------------------------------------
-    public User[] usersWithConditionalBalance(User[] users, int balance){
+   public static User[] usersWithConditionalBalance(User[] users, int balance){
 
         if(balance < 0){
             System.out.println("Balance have to be more than 0");
@@ -67,7 +67,7 @@ public final class UserUtils {
 
 
     //---------------------------------------------------------Search empty (null) users and create new users array----------------------------------------------------
-    public User[] deleteEmptyUsers(User[] users){
+    public static User[] deleteEmptyUsers(User[] users){
 
         User[] sortUser = new User[users.length];
         int quantity = 0;
