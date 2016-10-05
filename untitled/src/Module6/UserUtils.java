@@ -46,7 +46,7 @@ public final class UserUtils {
     }
 
     //-----------------------------------------------------------------------Add salary to balance method--------------------------------------------------------------------------
-    public static User[] paySalaryToUsers(User[] users){
+    public  static User[] paySalaryToUsers(User[] users){
         for(User i : users){
             i.setBalance(i.getBalance()+i.getSalary());
         }
@@ -67,7 +67,7 @@ public final class UserUtils {
 
 
     //---------------------------------------------------------Search empty (null) users and create new users array----------------------------------------------------
-    public static User[] deleteEmptyUsers(User[] users){
+    public  static User[] deleteEmptyUsers(User[] users){
 
         User[] sortUser = new User[users.length];
         int quantity = 0;

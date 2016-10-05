@@ -8,7 +8,7 @@ import Module5.homework.Room;
 public final class ArraysUtils {
 
     //------------------------------------------------------Calculated Sum of all elements the array-------------------------------------------
-    static int calculateSum(int[] array) {
+    final static int calculateSum(int[] array) {
         int sum = 0;
         for (int valueOfArray : array) {
 
