@@ -3,7 +3,7 @@ package Module7.homework;
 /**
  * Created by PC on ${DATA}.
  */
-public class User {
+public class User implements Comparable<User> {
 
     private long id;
     private String firstName;
@@ -18,6 +18,29 @@ public class User {
         this.city = city;
         this.balance = balance;
     }
+
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return firstName.compareTo(o.getFirstName());
+    }
+
 
     @Override
     public boolean equals(Object o) {

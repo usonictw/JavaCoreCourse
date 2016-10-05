@@ -3,7 +3,7 @@ package Module7.homework;
 /**
  * Created by PC on ${DATA}.
  */
-public class Order {
+public class Order implements Comparable<Order> {
 
     private long id;
     private int price;
@@ -39,6 +39,11 @@ public class Order {
 
     public String getItemName() {
         return itemName;
+    }
+
+    @Override
+    public int compareTo(Order o) {
+        return user.compareTo(o.getUser());
     }
 
     @Override
