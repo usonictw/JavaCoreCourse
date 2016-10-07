@@ -7,13 +7,124 @@ import java.util.*;
  * Created by PC on ${DATA}.
  */
 public class Main {
+    static List<User> listUser = new ArrayList<User>();
+    static List<Order> listOrder = new ArrayList<Order>();
 
+    // -------------------------------------Sorting the List to Decrease----------------------------------------------
+
+    public static void sortDecrease(List<Order> listOrder) {
+        System.out.println("Sorting the List to Decrease");
+        listOrder.sort(new ComparatorDecraese());
+        for (int i = 0; i < listOrder.size(); i++) {
+            System.out.println(listOrder.get(i));
+        }
+        System.out.println();
+    }
+
+
+    //---------------------------------------------------Sorting the list to increase and the city-------------------------
+    public static void sortIncreaseAndCity(List<Order> listOrder) {
+
+        listOrder.sort(new ComparatorIncreaseAndUserCity());
+        System.out.println("Sorting the list to increase and the city");
+        for (Order o : listOrder) {
+
+            System.out.println(o);
+        }
+    }
+
+    //--------------------------------------------------Sorting the list by Item and ShopID and UserCity
+    public static void sortItemShopIDUserCity(List<Order> listOrder) {
+        listOrder.sort(new CompareItemShopIdCity());
+        for (Order o : listOrder) {
+
+            System.out.println(o);
+        }
+    }
+
+    //-----------------------------------------------removing duplicates------------------------------------------------
+    public static void removingDuplicate(List<Order> listOrder) {
+        Set<Order> setOrder = new HashSet<Order>(listOrder);
+
+        setOrder.addAll(listOrder);
+        listOrder.clear();
+        listOrder.addAll(setOrder);
+        listOrder.sort(new ComparatorIncrease());
+        List<Order> orderListM = new ArrayList<Order>(listOrder);
+
+        System.out.println("removing duplicates");
+        for (int i = 0; i < orderListM.size(); i++) {
+            System.out.println(listOrder.get(i));
+        }
+    }
+
+    //-----------------------------------------------removing object with price less than 1500----------------------------
+    public static void deleteLess1500(List<Order> listOrder) {
+        System.out.println("removing object with price less than 1500");
+        Iterator<Order> iterator = listOrder.iterator();
+
+        while (iterator.hasNext()) {
+
+            Order o = iterator.next();
+            if (o.getPrice() < 1500) {
+                iterator.remove();
+            }
+        }
+        System.out.println(listOrder);
+    }
+
+//----------------------------------------------separation the list into two by currency----------------------------------
+
+    public static void separateByCurrency(List<Order> listOrder) {
+        List<Order> list1 = new ArrayList<Order>();
+        List<Order> list2 = new ArrayList<Order>();
+
+        for (int i = 0; i < listOrder.size(); i++) {
+
+            if (listOrder.get(i).getCurrency() == Currency.UAH) {
+                list1.add(listOrder.get(i));
+            } else {
+                list2.add(listOrder.get(i));
+            }
+        }
+        System.out.println("LIST1");
+
+        for (int i = 0; i < list1.size(); i++) {
+            System.out.println(list1.get(i));
+        }
+        System.out.println("LIST2");
+
+        for (int i = 0; i < list2.size(); i++) {
+            System.out.println(list2.get(i));
+        }
+    }
+
+
+    // -----------------------Searching quantity City uniq-----------------------------------------------
+
+    public static void listsByUsercity(List<Order> listOrder) {
+        List<Order> listByCity = new ArrayList<Order>();
+
+        for (int i = 0; i < listOrder.size() - 1; i++) {
+            boolean flag = true;
+            for (int j = i + 1; j < listOrder.size(); j++) {
+                if(listOrder.get(i).getUser().getCity().equals(listOrder.get(j).getUser().getCity())){
+                    flag = false;
+                }
+
+            }
+            if(flag){
+                listByCity.add(listOrder.get(i));
+            }
+        }
+        for(Order o : listByCity) {
+            System.out.println(o);
+        }
+
+
+    }
 
     public static void main(String[] args) {
-
-
-        List<User> listUser = new ArrayList<User>();
-        List<Order> listOrder = new ArrayList<Order>();
 
 
         listUser.add(new User(0001, "John", "Johnaton", "C", 100));
@@ -40,106 +151,7 @@ public class Main {
         listOrder.add(new Order(0010, 1500, Currency.UAH, "item1", "ID010", listUser.get(9)));
         //listOrder.add(new Order1(0011, 54, Currency.UAH, "item1", "ID01", listUser.get(0)));
 
-
-        // -------------------------------------Sorting the List to Decrease----------------------------------------------
-        System.out.println("Sorting the List to Decrease");
-        listOrder.sort(new ComparatorDecraese());
-        for (int i = 0; i < listOrder.size(); i++) {
-            System.out.println(listOrder.get(i));
-        }
-
-
-//---------------------------------------------------Sorting the list to increase and the city-------------------------
-        listOrder.sort(new ComparatorIncreaseAndUserCity());
-        System.out.println("Sorting the list to increase and the city");
-        for (Order o : listOrder) {
-
-            System.out.println(o);
-        }
-//--------------------------------------------------Sorting the list by Item and ShopID and UserCity
-       /* listOrder.sort(new CompareItemShopIdCity());
-        for(Order1 o : listOrder){
-
-            System.out.println(o);
-        }
-        */
-
-
-//------------------------------------------------removing duplicates------------------------------------------------
-        Set<Order> setOrder = new HashSet<Order>(listOrder);
-
-        setOrder.addAll(listOrder);
-        listOrder.clear();
-        listOrder.addAll(setOrder);
-        listOrder.sort(new ComparatorIncrease());
-        List<Order> orderListM = new ArrayList<Order>(listOrder);
-
-        System.out.println("removing duplicates");
-        for (int i = 0; i < orderListM.size(); i++) {
-            System.out.println(listOrder.get(i));
-        }
-
-//-----------------------------------------------removing object with price less than 1500----------------------------
-        System.out.println("removing object with price less than 1500");
-        Iterator<Order> iterator = orderListM.iterator();
-
-        while (iterator.hasNext()) {
-
-            Order o = iterator.next();
-            if (o.getPrice() < 1500) {
-                iterator.remove();
-            }
-        }
-
-//----------------------------------------------separation the list into two by currency----------------------------------
-
-        List<Order> list1 = new ArrayList<Order>();
-        List<Order> list2 = new ArrayList<Order>();
-
-        for (int i = 0; i < listOrder.size(); i++) {
-
-            if (listOrder.get(i).getCurrency() == Currency.UAH) {
-                list1.add(listOrder.get(i));
-            } else {
-                list2.add(listOrder.get(i));
-            }
-        }
-        System.out.println("LIST1");
-
-        for (int i = 0; i < list1.size(); i++) {
-            System.out.println(list1.get(i));
-        }
-        System.out.println("LIST2");
-
-        for (int i = 0; i < list2.size(); i++) {
-            System.out.println(list2.get(i));
-        }
-
-
-        // -----------------------Searching quantity City uniq-----------------------------------------------
-
-        List<List<Order>> listByCity = new ArrayList<List<Order>>();
-        listOrder.sort(new ComparatorCity());
-        for (int i = 0; i < listOrder.size(); i++){
-
-        }
-
-        System.out.println();
-        for (Order s : listOrder) {
-            System.out.println(s);
-        }
-
-        int counter = 0;
-        for (int i = 0; i < listOrder.size() - 1; i++) {
-
-            for (int j = i + 1; j < listOrder.size(); j++) {
-                if (listOrder.get(i).getUser().getCity().equals(listOrder.get(j).getUser().getCity())) {
-
-                }
-
-            }
-        }
-        System.out.println(counter);
+        listsByUsercity(listOrder);
 
 
     }
