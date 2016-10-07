@@ -1,4 +1,4 @@
-package Module7.homework;
+package Module7.homework.Task2;
 
 import java.util.Comparator;
 
