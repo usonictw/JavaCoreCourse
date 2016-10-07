@@ -1,6 +1,6 @@
 package Module7.homework.Task3;
 
-import Module7.homework.Currency;
+import Module7.homework.Task2.Currency;
 
 /**
  * Created by PC on ${DATA}.
