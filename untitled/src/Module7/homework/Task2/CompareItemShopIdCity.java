@@ -17,6 +17,5 @@ public class CompareItemShopIdCity implements Comparator<Order> {
         result = o1.getUser().getCity().compareTo(o2.getUser().getCity());
         return (result != 0) ? result : 0;
 
-
     }
 }

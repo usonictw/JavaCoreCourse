@@ -15,5 +15,6 @@ public class ComparatorIncreaseAndUserCity implements Comparator<Order> {
             return o1.getUser().getCity().compareTo(o2.getUser().getCity());
         }
         else return o1.getPrice() - o2.getPrice();
+
     }
 }

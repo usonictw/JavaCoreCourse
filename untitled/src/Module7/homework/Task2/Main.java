@@ -152,6 +152,11 @@ public class Main {
         //listOrder.add(new Order1(0011, 54, Currency.UAH, "item1", "ID01", listUser.get(0)));
 
         listsByUsercity(listOrder);
+        //sortDecrease(listOrder);
+        //sortIncreaseAndCity(listOrder);
+        //sortItemShopIDUserCity(listOrder);
+        //deleteLess1500(listOrder);
+        //separateByCurrency(listOrder);
 
 
     }

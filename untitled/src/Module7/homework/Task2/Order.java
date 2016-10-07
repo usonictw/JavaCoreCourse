@@ -12,6 +12,7 @@ public class Order implements Comparable<Order> {
     private String shopIdentificator;
     private User user;
 
+
     public Order(long id, int price, Currency currency, String itemName, String shopIdentificator, User user) {
         this.id = id;
         this.price = price;
