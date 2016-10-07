@@ -43,12 +43,12 @@ public class Order implements Comparable<Order> {
 
     @Override
     public int compareTo(Order o) {
-        return user.compareTo(o.getUser());
+        return user.getCity().compareTo(o.getUser().getCity());
     }
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Order1{" +
                 "id=" + id +
                 ", price=" + price +
                 ", currency=" + currency +
