@@ -7,8 +7,8 @@ import java.util.*;
  * Created by PC on ${DATA}.
  */
 public class Main {
-    static List<User> listUser = new ArrayList<User>();
-    static List<Order> listOrder = new ArrayList<Order>();
+    public static List<User> listUser = new ArrayList<User>();
+    public static List<Order> listOrder = new ArrayList<Order>();
 
     // -------------------------------------Sorting the List to Decrease----------------------------------------------
 
@@ -100,24 +100,30 @@ public class Main {
     }
 
 
-    // -----------------------Searching quantity City uniq-----------------------------------------------
+    // -----------------------separate list for as many lists as many unique cities are in User-----------------------------------------------
 
-    public static void listsByUsercity(List<Order> listOrder) {
-        List<Order> listByCity = new ArrayList<Order>();
+    public static void listsByUserCity(List<Order> listOrder) {
+
+        List<ArrayList<Order>> listsByCity = new ArrayList<ArrayList<Order>>();
 
         for (int i = 0; i < listOrder.size() - 1; i++) {
             boolean flag = true;
-            for (int j = i + 1; j < listOrder.size(); j++) {
-                if(listOrder.get(i).getUser().getCity().equals(listOrder.get(j).getUser().getCity())){
-                    flag = false;
+            for (int j = 0; j < listOrder.size(); j++) {
+                if(i!=j) {
+                    if (listOrder.get(i).getUser().getCity().equals(listOrder.get(j).getUser().getCity())) {
+                        flag = false;
+                    }
                 }
-
             }
             if(flag){
-                listByCity.add(listOrder.get(i));
+                List<Order> temp = new ArrayList<Order>();
+                temp.add(listOrder.get(i));
+                listsByCity.add((ArrayList<Order>) temp);
             }
+
         }
-        for(Order o : listByCity) {
+
+        for(ArrayList o : listsByCity) {
             System.out.println(o);
         }
 
@@ -131,11 +137,11 @@ public class Main {
         listUser.add(new User(0002, "John1", "Johnaton1", "B", 200));
         listUser.add(new User(0003, "John2", "Johnaton2", "W", 150));
         listUser.add(new User(0004, "John3", "Johnaton3", "L", 160));
-        listUser.add(new User(0005, "John4", "Johnaton4", "L", 120));
+        listUser.add(new User(0005, "John4", "Johnaton4", "C", 120));
         listUser.add(new User(0006, "John5", "Johnaton5", "N", 160));
         listUser.add(new User(0007, "John6", "Johnaton6", "N", 130));
-        listUser.add(new User(00010, "John7", "Johnaton7", "T", 120));
-        listUser.add(new User(00011, "John8", "Johnaton8", "K", 120));
+        listUser.add(new User(00010, "John7", "Johnaton7", "N", 120));
+        listUser.add(new User(00011, "John8", "Johnaton8", "N", 120));
         listUser.add(new User(00012, "John9", "Johnaton9", "L", 170));
 
 
@@ -151,7 +157,7 @@ public class Main {
         listOrder.add(new Order(0010, 1500, Currency.UAH, "item1", "ID010", listUser.get(9)));
         //listOrder.add(new Order1(0011, 54, Currency.UAH, "item1", "ID01", listUser.get(0)));
 
-        listsByUsercity(listOrder);
+        listsByUserCity(listOrder);
         //sortDecrease(listOrder);
         //sortIncreaseAndCity(listOrder);
         //sortItemShopIDUserCity(listOrder);
