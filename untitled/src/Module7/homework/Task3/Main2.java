@@ -19,13 +19,22 @@ public class Main2 {
 
     //----------------------------------------Check if Set contain Order where Users lastName is - Petrov----------------
 
-    public static void searchingLastName(Set<Order1> order1Set) {
+    public static void searchingLastName(Set<Order1> order1Set, String lastName) {
         System.out.println("********** Check if Set contain Order where User’s lastName is - Petrov*************");
+        boolean flag = false;
         for (Order1 o : order1Set) {
+
             //System.out.println(o);
-            if (o.getUser1().getLastName() == "Petrov") {
-                System.out.println(o.getUser1().getLastName() + " is Listed");
+            if (o.getUser1().getLastName() == lastName) {
+                flag = true;
+                // System.out.println(o.getUser1().getLastName() + " is Listed");
             }
+
+        }
+        if(flag){
+            System.out.println(lastName + " is Listed");
+        } else {
+            System.out.println(lastName + " is not Listed");
         }
         System.out.println();
     }
@@ -70,7 +79,7 @@ public class Main2 {
         order1Set.add(new Order1(0010, 1500, Currency.UAH, "item1", "ID010", new User1(00012, "John9", "Johnaton9", "NY5", 170)));
         order1Set.add(new Order1(0010, 1500, Currency.UAH, "item1", "ID010", new User1(00012, "John9", "Johnaton9", "NY5", 170)));
 
-            searchingLastName(order1Set);
+            searchingLastName(order1Set, "Ivanov");
             //deleteCurrencyUSD(order1Set);
             //searchingLargestPrice(order1Set);
 
