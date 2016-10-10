@@ -20,12 +20,12 @@ public class Main2 {
     //----------------------------------------Check if Set contain Order where Users lastName is - Petrov----------------
 
     public static void searchingLastName(Set<Order1> order1Set, String lastName) {
-        System.out.println("********** Check if Set contain Order where User’s lastName is - Petrov*************");
+        System.out.println("********** Check if Set contain Order where Userï¿½s lastName is - Petrov*************");
         boolean flag = false;
         for (Order1 o : order1Set) {
 
             //System.out.println(o);
-            if (o.getUser1().getLastName() == lastName) {
+            if (o.getUser1().getLastName().equals(lastName)) {
                 flag = true;
                 // System.out.println(o.getUser1().getLastName() + " is Listed");
             }
