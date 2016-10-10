@@ -7,7 +7,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MeasureTime measureTime = new MeasureTime();
-        measureTime.measureTimeByAdd(1000000, 1);
+
+
+        MeasureTime<Integer> measureTime = new MeasureTime<>(1);
+        measureTime.measureTimeByAdd(10000, 1);
+        measureTime.measureTimeByGet();
+        measureTime.measureTimeBySet(1000, 2);
+        measureTime.measureTimeByRemove();
+
     }
 }
