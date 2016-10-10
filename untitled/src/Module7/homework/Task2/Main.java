@@ -46,7 +46,6 @@ public class Main {
     public static void removingDuplicate(List<Order> listOrder) {
         Set<Order> setOrder = new HashSet<Order>(listOrder);
 
-        setOrder.addAll(listOrder);
         listOrder.clear();
         listOrder.addAll(setOrder);
         listOrder.sort(new ComparatorIncrease());

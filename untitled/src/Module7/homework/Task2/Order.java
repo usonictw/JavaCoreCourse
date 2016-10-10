@@ -6,7 +6,7 @@ package Module7.homework.Task2;
 public class Order implements Comparable<Order> {
 
     private long id;
-    private int price;
+    private Integer price;
     private Currency currency;
     private String itemName;
     private String shopIdentificator;
