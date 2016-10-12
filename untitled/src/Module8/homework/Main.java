@@ -10,18 +10,58 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<User> users = new ArrayList<>();
+        DAOImpl<User> implementation = new DAOImpl<>();
 
-        users.add(new User(001, "Ivan1", "Ivanov"));
-        users.add(new User(002, "Ivan2", "Petrov"));
-        users.add(new User(003, "Ivanov3", "Sidorov"));
 
-        DAOImplementation<User> implementation = new DAOImplementation<User>();
+        User user1 = new User(001, "Ivan1", "Ivanov");
+        User user2 = new User(002, "Ivan2", "Petrov");
+        User user3 = new User(003, "Ivanov3", "Sidorov");
 
-        User user1 = new User(004, "Ivan", "Petrov");
+        DAOImpl<Order> implementation1 = new DAOImpl<>();
+
+        Order order1 = new Order(0001, 180, "Samsung");
+
+
+// Save our users in DAO
         implementation.save(user1);
+        //implementation.save(user2);
+        //implementation.save(user3);
+// Print our the list of users
 
-        System.out.println(users);
+        System.out.println(implementation.getList());
+        System.out.println("**********************");
+// Delete the user from the our list
+        implementation.delete(user2);
+        System.out.println(implementation.getList());
+        System.out.println("**********************");
+
+//Save the list of users in the DAO
+
+        List<User> userList = new ArrayList<>();
+
+        userList.add(new User(004, "Ivan", "Ivanov"));
+        userList.add(new User(005, "Petrov", "Petr"));
+        implementation.saveAll(userList);
+        System.out.println("List of the users after added new list of the users");
+        for (User u : implementation.getList()) {
+            System.out.println(u);
+        }
+        System.out.println("*******************");
+
+//remove the list of the users from DAO
+        implementation.deleteAll(userList);
+        System.out.println("Users's list after remove list of the users");
+        for (User u : implementation.getList()) {
+            System.out.println(u);
+        }
+
+
+// Save our orders in DAO
+        implementation1.save(order1);
+        System.out.println("**********************");
+        System.out.println(implementation1.getList());
+
+
 
 
 

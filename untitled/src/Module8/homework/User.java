@@ -1,11 +1,13 @@
 package Module8.homework;
 
+import java.util.Comparator;
+
 /**
  * Created by PC on ${DATA}.
  */
 public class User {
 
-    private long id;
+    private Long id;
     private String firstName;
     private String lastName;
 
@@ -35,4 +37,6 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+
 }
