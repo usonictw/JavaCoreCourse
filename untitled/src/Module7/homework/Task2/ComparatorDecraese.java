@@ -1,4 +1,4 @@
-package Module7.homework;
+package Module7.homework.Task2;
 
 import java.util.Comparator;
 
@@ -9,6 +9,7 @@ public class ComparatorDecraese implements Comparator<Order>{
 
     @Override
     public int compare(Order o1, Order o2) {
+
         return o2.getPrice() - o1.getPrice();
     }
 }

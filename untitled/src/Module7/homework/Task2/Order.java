@@ -1,16 +1,17 @@
-package Module7.homework;
+package Module7.homework.Task2;
 
 /**
  * Created by PC on ${DATA}.
  */
-public class Order {
+public class Order implements Comparable<Order> {
 
     private long id;
-    private int price;
+    private Integer price;
     private Currency currency;
     private String itemName;
     private String shopIdentificator;
     private User user;
+
 
     public Order(long id, int price, Currency currency, String itemName, String shopIdentificator, User user) {
         this.id = id;
@@ -42,8 +43,13 @@ public class Order {
     }
 
     @Override
+    public int compareTo(Order o) {
+        return user.getCity().compareTo(o.getUser().getCity());
+    }
+
+    @Override
     public String toString() {
-        return "Order{" +
+        return "Order1{" +
                 "id=" + id +
                 ", price=" + price +
                 ", currency=" + currency +
