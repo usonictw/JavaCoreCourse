@@ -9,7 +9,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String city;
-    private int balance;
+    private Integer balance;
 
     public User(long id, String firstName, String lastName, String city, int balance) {
         this.id = id;
