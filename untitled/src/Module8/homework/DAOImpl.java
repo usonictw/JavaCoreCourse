@@ -19,16 +19,23 @@ public class DAOImpl<T> implements DAO<T> {
     public void delete(T object) {
 
         if (!list.isEmpty()) {
-            System.out.println("The List of our users after delete");
             list.remove(object);
-        } else System.out.println("List is empty");
+            System.out.println("The List of our users after delete");
+
+        }else  System.out.println("List is empty");
+
+
 
     }
 
     @Override
     public void deleteAll(List<T> object) {
 
-        list.removeAll(object);
+        if (!object.isEmpty()) {
+            list.removeAll(object);
+        } else {
+            System.out.println("  ");
+        }
 
     }
 

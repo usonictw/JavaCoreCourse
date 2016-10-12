@@ -16,6 +16,7 @@ public class Main {
         User user1 = new User(001, "Ivan1", "Ivanov");
         User user2 = new User(002, "Ivan2", "Petrov");
         User user3 = new User(003, "Ivanov3", "Sidorov");
+        User user4 = new User();
 
         DAOImpl<Order> implementation1 = new DAOImpl<>();
 
@@ -23,24 +24,25 @@ public class Main {
 
 
 // Save our users in DAO
-        implementation.save(user1);
+        implementation.save(user4);
         //implementation.save(user2);
         //implementation.save(user3);
-// Print our the list of users
 
         System.out.println(implementation.getList());
         System.out.println("**********************");
+
 // Delete the user from the our list
-        implementation.delete(user2);
-        System.out.println(implementation.getList());
-        System.out.println("**********************");
+            implementation.delete(user3);
+            System.out.println(implementation.getList());
+            System.out.println("**********************");
+
 
 //Save the list of users in the DAO
 
         List<User> userList = new ArrayList<>();
 
-        userList.add(new User(004, "Ivan", "Ivanov"));
-        userList.add(new User(005, "Petrov", "Petr"));
+        //userList.add(new User(004, "Ivan", "Ivanov"));
+        //userList.add(new User(005, "Petrov", "Petr"));
         implementation.saveAll(userList);
         System.out.println("List of the users after added new list of the users");
         for (User u : implementation.getList()) {
