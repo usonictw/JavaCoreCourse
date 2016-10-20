@@ -1,6 +1,6 @@
 package Module9.homework;
 
-import Module7.homework.Task2.*;
+import Module7.homework.Task2.Order;
 import Module7.homework.Task2.Currency;
 
 
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Created by PC on ${DATA}.
  */
-public class SortUtil {
+public class OrderUtil {
 
 
     // -------------------------------------Sorting the List to Decrease----------------------------------------------
@@ -78,10 +78,10 @@ public class SortUtil {
     public static void deleteLess1500(List<Order> listOrder) {
 
         System.out.println("**********removing object with price less than 1500**********");
-        List<Order> orderListM = new ArrayList<Order>(listOrder);
-        Predicate<Order> orderPredicate = order -> order.getPrice() < 1500;
-        orderListM.stream().filter(orderPredicate).collect(Collectors.toList());
-        orderListM.forEach(System.out::println);
+        //List<Order> orderListM = new ArrayList<Order>(listOrder);
+        //Predicate<Order> orderPredicate = order -> order.getPrice() < 1500;
+        listOrder.stream().filter(o -> o.getPrice() < 60).forEach(System.out::println);
+
 
         /*Iterator<Order> iterator = listOrder.iterator();
 
@@ -101,15 +101,13 @@ public class SortUtil {
     public static void separateByCurrency(List<Order> listOrder) {
 
         System.out.println("**********split the list into two by type the currency **********");
-        List<Order> list1 = new ArrayList<Order>();
-        List<Order> list2 = new ArrayList<Order>();
 
         Predicate<Order> orderPredicateUAH = o -> o.getCurrency() == Currency.UAH;
         Predicate<Order> orderPredicateUSD = order -> order.getCurrency() == Currency.USD;
-        list1.stream().filter(orderPredicateUAH).collect(Collectors.toList());
-        list2.stream().filter(orderPredicateUSD).collect(Collectors.toList());
-        list1.forEach(System.out::println);
-        list2.forEach(System.out::println);
+        listOrder.stream().filter(orderPredicateUAH).forEach(System.out::println);
+        System.out.println("***************************************************");
+        listOrder.stream().filter(orderPredicateUSD).forEach(System.out::println);
+
     }
 
         /*for (int i = 0; i < listOrder.size(); i++) {
@@ -137,7 +135,8 @@ public class SortUtil {
     public static void listsByUserCity(List<Order> listOrder) {
 
         System.out.println("**********Split List by uniq city**********");
-        Set<Order> set = new HashSet<>(listOrder);
+        Set<Order> set = new TreeSet<>(listOrder);
+        //set.forEach(System.out::println);
         Function<Order, List<Order>> separateFunction = new Function<Order, List<Order>>() {
             @Override
             public List<Order> apply(Order order) {
@@ -148,7 +147,7 @@ public class SortUtil {
             }
         };
 
-        List<List<Order>> listsByCity = listOrder.stream()
+        List<List<Order>> listsByCity = set.stream()
                 .map(separateFunction)
                 .collect(Collectors.toList());
 
@@ -181,19 +180,21 @@ public class SortUtil {
 
     public static void deleteOrdersUSD(List<Order> listOrder) {
         System.out.println("********removing order with currency USD**********");
-        listOrder.stream()
-                .filter(l -> l.getCurrency() == Currency.USD)
-                .collect(Collectors.toList())
-                .forEach(System.out::println);
+        List<Order> listRemoveUSD = listOrder.stream()
+                .filter(l -> l.getCurrency() == Currency.UAH)
+                .collect(Collectors.toList());
+        listRemoveUSD.forEach(System.out::println);
 
     }
 
-    public static boolean checkList(List<Order> listOtder) {
+    public static void checkList(List<Order> listOtder, String lastName) {
 
         System.out.println("********** Check if Set contain Order where User�s lastName is - Petrov*************");
 
-        return listOtder.stream()
-                .anyMatch(l -> l.getUser().getLastName().equals("Petrov"));
+        if(listOtder.stream()
+                .anyMatch(l -> l.getUser().getLastName().equals(lastName))){
+            System.out.println(lastName+" is listed");
+        } else System.out.println(lastName+" is not listed");
 
 
     }

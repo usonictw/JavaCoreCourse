@@ -18,7 +18,7 @@ public class Test {
     public static void main(String[] args) {
 
 
-        listUser.add(new User(0001, "John", "Johnaton", "C", 100));
+        listUser.add(new User(0001, "John", "Petrov", "C", 100));
         listUser.add(new User(0002, "John1", "Johnaton1", "A", 200));
         listUser.add(new User(0003, "John2", "Johnaton2", "W", 150));
         listUser.add(new User(0004, "John3", "Johnaton3", "L", 160));
@@ -42,14 +42,15 @@ public class Test {
         listOrder.add(new Order(0010, 1500, Currency.UAH, "item1", "ID010", listUser.get(9)));
         //listOrder.add(new Order1(0011, 54, Currency.UAH, "item1", "ID01", listUser.get(0)));
 
-        //SortUtil.sortDecrease(listOrder);
-        //SortUtil.sortIncreaseAndCity(listOrder);
-        //SortUtil.sortItemShopIDUserCity(listOrder);
-        //SortUtil.removingDuplicate();
-        SortUtil.deleteLess1500(listOrder);
-        //SortUtil.separateByCurrency(listOrder);
-        //System.out.println(SortUtil.checkList(listOrder));
-        //SortUtil.deleteOrdersUSD(listOrder);
+        //OrderUtil.sortDecrease(listOrder);
+        //OrderUtil.sortIncreaseAndCity(listOrder);
+        //OrderUtil.sortItemShopIDUserCity(listOrder);
+        //OrderUtil.removingDuplicate();
+        //OrderUtil.deleteLess1500(listOrder);
+        //OrderUtil.separateByCurrency(listOrder);
+        //OrderUtil.listsByUserCity(listOrder);
+        OrderUtil.checkList(listOrder, "Ivanov");
+        //OrderUtil.deleteOrdersUSD(listOrder);
 
 
     }
