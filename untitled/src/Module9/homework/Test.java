@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class Test {
 
-    public static List<User> listUser = new ArrayList<User>();
-    public static List<Order> listOrder = new ArrayList<Order>();
+    private static List<User> listUser = new ArrayList<User>();
+    private static List<Order> listOrder = new ArrayList<Order>();
 
     public static void main(String[] args) {
 
