@@ -62,8 +62,7 @@ public class OrderUtil {
     public static void removingDuplicate(List<Order> listOrder) {
         List<Order> orderListM = new ArrayList<Order>(listOrder);
         System.out.println("**********Removing duplicate**********");
-        orderListM.stream().distinct().collect(Collectors.toList());
-        orderListM.forEach(System.out::println);
+        orderListM.stream().distinct().collect(Collectors.toList()).forEach(System.out::println);
 
         /*Set<Order> setOrder = new HashSet<Order>(orderListM);
         orderListM.clear();
@@ -135,7 +134,7 @@ public class OrderUtil {
     public static void listsByUserCity(List<Order> listOrder) {
 
         System.out.println("**********Split List by uniq city**********");
-        Set<Order> set = new TreeSet<>(listOrder);
+        Set<Order> set = new HashSet<>(listOrder);
         //set.forEach(System.out::println);
         Function<Order, List<Order>> separateFunction = new Function<Order, List<Order>>() {
             @Override
