@@ -5,14 +5,32 @@ package Module10.homework.Task4;
  */
 public class MyException {
 
-    public void f () {
+    public void f(int lengthArr, int index) throws NullPointerException {
 
+        try {
+            int[] arr2 = g(lengthArr);
+            if (index < lengthArr - 1) {
+                System.out.println("ok");
+            } else throw new NullPointerException("You've input wrong index of array");
+        } catch (NegativeArraySizeException nas) {
+
+            System.out.println(nas.getMessage());
+
+        }
 
     }
 
-    public void g() throws Exception {
+    public int[] g(int lengthArr) throws NegativeArraySizeException {
 
-        throw new Exception("new Exception");
+        int[] arr = new int[lengthArr];
+        if (lengthArr > 0) {
+            for (int i = 0; i > lengthArr; i++) {
+                arr[i] = i + 1;
+            }
+        } else {
 
+            throw new NegativeArraySizeException("Your input negative size of array");
+        }
+        return arr;
     }
 }
