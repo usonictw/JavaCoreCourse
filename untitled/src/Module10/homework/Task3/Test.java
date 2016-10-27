@@ -9,10 +9,10 @@ public class Test {
 
     public static void main(String[] args) {
 
-        User user = new User();
-        user = null;
+        User user = null;
 
         try {
+
             user.getName();
         }
         catch (NullPointerException npe){
