@@ -11,26 +11,22 @@ import java.util.List;
  */
 public class Check {
 
-    public  static List<User> userList = new ArrayList<>();
+    public static List<User> userList = new ArrayList<>();
 
     public static void main(String[] args) throws MyException1 {
 
-
-
-        //userList.add(new User(01, "Jhon", "USD"));
-        //userList.add(new User(02, "Piter", "USD"));
-        //userList.add(new User(03, "Curt", "RUB"));
+        userList.add(new User(01, "Jhon", "USD"));
+        userList.add(new User(02, "Piter", "USD"));
+        userList.add(new User(03, "Curt", "USD"));
 
         CallException callException = new CallException();
 
         try {
             callException.callException(userList);
-        }
-        catch (MyException3 me){
+            System.out.println("list is compiled correctly");
+        } catch (MyException1 me) {
             System.out.println(me.getMessage());
         }
-
-
 
     }
 }

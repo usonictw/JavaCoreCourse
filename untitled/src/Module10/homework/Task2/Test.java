@@ -19,7 +19,7 @@ public class Test {
 
     }
 
-    public static void testEx(String msg) throws OwnerException {
+    private static void testEx(String msg) throws OwnerException {
 
         if (msg.equals("String")) {
             System.out.println("Ok");

@@ -10,7 +10,7 @@ public class MyException {
         try {
             int[] arr2 = g(lengthArr);
             if (index < lengthArr - 1) {
-                System.out.println("ok");
+                System.out.println("called index - ok");
             } else throw new NullPointerException("You've input wrong index of array");
         } catch (NegativeArraySizeException nas) {
 
@@ -22,15 +22,19 @@ public class MyException {
 
     public int[] g(int lengthArr) throws NegativeArraySizeException {
 
-        int[] arr = new int[lengthArr];
+        int[] arr;
         if (lengthArr > 0) {
+            arr = new int[lengthArr];
             for (int i = 0; i > lengthArr; i++) {
                 arr[i] = i + 1;
             }
-        } else {
+            System.out.println("length of array - ok");
+            return arr;
+        }
 
+        else {
             throw new NegativeArraySizeException("Your input negative size of array");
         }
-        return arr;
+
     }
 }
