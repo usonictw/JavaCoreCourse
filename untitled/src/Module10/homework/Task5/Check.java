@@ -11,11 +11,9 @@ import java.util.List;
  */
 public class Check {
 
-    public  static List<User> userList = new ArrayList<>();
+    public static List<User> userList = new ArrayList<>();
 
     public static void main(String[] args) throws MyException1 {
-
-
 
         userList.add(new User(01, "Jhon", "USD"));
         userList.add(new User(02, "Piter", "USD"));
@@ -26,8 +24,7 @@ public class Check {
         try {
             callException.callException(userList);
             System.out.println("list is compiled correctly");
-        }
-        catch (MyException1 me){
+        } catch (MyException1 me) {
             System.out.println(me.getMessage());
         }
 

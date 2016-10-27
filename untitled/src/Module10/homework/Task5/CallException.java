@@ -31,12 +31,9 @@ public class CallException {
                     throw new MyException2("Name have to be more 4 chars");
                 }
 
-
             }
 
-
         }
-
 
     }
 }
