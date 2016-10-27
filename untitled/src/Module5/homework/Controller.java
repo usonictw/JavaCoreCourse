@@ -99,7 +99,7 @@ public class Controller {
         }else {
 
             System.arraycopy(matchesRoom, 0, rooms, 0, index);
-            rooms = ArraysUtils.deleteEmptyRoom(ArraysUtils.uniqueRooms(rooms));
+            //rooms = ArraysUtils.deleteEmptyRoom(ArraysUtils.uniqueRooms(rooms));
             System.out.println(index+ " matches founded for room(s): ");
             for (Room printRooms : rooms){
                 System.out.println(printRooms);
@@ -160,7 +160,7 @@ public class Controller {
         return rooms;
     }
 
-   /*public static void main(String[] args) {
+   /*public static void Test(String[] args) {
 
         Controller controller = new Controller();
 
