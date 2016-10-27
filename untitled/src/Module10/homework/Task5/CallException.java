@@ -12,39 +12,33 @@ public class CallException {
 
     public void callException(List<User> userList) throws MyException1 {
 
-        // проверяем список на тип валюты и "выбрасываем" ошибку если в списке есть валюта РУБ
+        //check the list to NULL
 
-        for (User u : userList) {
-            if (!u.getCurrency().equals("RUB")) {
-                System.out.println("ok");
-            } else {
-                throw new MyException3("Using RUB");
+        if (userList.size() == 0) {
+            throw new MyException1("Size of list is zero. you must create list of users");
+        } else {
+
+            // check the list by the type currency, if currency is "RUB" throw exception
+
+            for (User u : userList) {
+                if (u.getCurrency().equals("RUB")) {
+                    throw new MyException3("User " + u.getName() + " Using RUB. You have to change type of currency");
+                }
+
+                // checking the list of the number of characters in the userName, if number of characters less 4 trow Exception
+
+                if (u.getName().length() < 4) {
+                    throw new MyException2("Name have to be more 4 chars");
+                }
+
+
             }
 
+
         }
-
-        // проверка длины имени юзера, Им Юзера должно быть не менее 4 символов
-
-        for(User u : userList){
-
-            if(u.getName().length() > 4){
-                System.out.println("ok");
-            }else throw new MyException2("Name have to be more 4 chars");
-        }
-
-        //
-
-
-
-
-
 
 
     }
-
-
-
-
 }
 
 

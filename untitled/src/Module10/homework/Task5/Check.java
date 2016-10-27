@@ -17,20 +17,19 @@ public class Check {
 
 
 
-        //userList.add(new User(01, "Jhon", "USD"));
-        //userList.add(new User(02, "Piter", "USD"));
-        //userList.add(new User(03, "Curt", "RUB"));
+        userList.add(new User(01, "Jhon", "USD"));
+        userList.add(new User(02, "Piter", "USD"));
+        userList.add(new User(03, "Curt", "USD"));
 
         CallException callException = new CallException();
 
         try {
             callException.callException(userList);
+            System.out.println("list is compiled correctly");
         }
-        catch (MyException3 me){
+        catch (MyException1 me){
             System.out.println(me.getMessage());
         }
-
-
 
     }
 }
