@@ -30,9 +30,7 @@ public class MyException {
             }
             System.out.println("length of array - ok");
             return arr;
-        }
-
-        else {
+        } else {
             throw new NegativeArraySizeException("Your input negative size of array");
         }
 
