@@ -1,0 +1,12 @@
+package Module10.homework.Task5;
+
+/**
+ * Created by user on 26.10.2016.
+ */
+public class MyException1 extends Exception {
+
+    public MyException1(String message) {
+        super(message);
+    }
+
+}
