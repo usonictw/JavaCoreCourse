@@ -34,8 +34,8 @@ public class Task1 {
 
         Task1 task1 = new Task1();
 
-        FileUtils.createFile("/Users/PC/IdeaProjects/JavaCoreCourse/untitled/src/Module11/file.txt");
-        FileUtils.writeToFile("/Users/PC/IdeaProjects/JavaCoreCourse/untitled/src/Module11/file.txt");
+        //FileUtils.createFile();
+        FileUtils.writeToFile();
 
 
     }
