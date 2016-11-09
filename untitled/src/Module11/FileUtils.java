@@ -1,7 +1,6 @@
 package Module11;
 
 import java.io.*;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -17,50 +16,36 @@ public class FileUtils {
             fileName = sc.next();
             File file = new File(fileName + ".txt");
             if (file.createNewFile()) {
-                System.out.println(fileName + " File created in the root of the project");
+                System.out.println(fileName + " created in the root of the project");
             } else {
                 System.out.println("File " + fileName + " is exist");
             }
         }
+
     }
 
     public static void writeToFile() throws IOException {
-        String fileName = "";
-        String input = " ";
-        int n0Line = 0;
+
+        String fileName;
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            String read;
-            read = br.readLine();
-            n0Line = Integer.valueOf(read);
-        } catch (NumberFormatException n) {
-            System.out.println("You have to Enter the number");
-        }
-
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            System.out.println("Enter the " + n0Line + " line of text");
-            while (n0Line > 0) {
-                //input = br.readLine();
-                input = input + br.readLine();
-                n0Line--;
-            }
-
-        }
-
-        System.out.println("Enter a file name");
-
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("enter the file name which will write text");
             fileName = br.readLine();
-        } catch (NoSuchElementException e) {
-            System.out.println();
+
         }
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName + ".txt"))) {
-            bw.newLine();
-            bw.write(input);
-        } catch (IOException e) {
-            System.out.println("file not found");
+        try(BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(fileName+".txt")))
+        {
+            // чтение построчно
+            String text;
+            while(!(text=br.readLine()).equals("ESC")){
+
+                bw.write(text + System.lineSeparator());
+                bw.flush();
+            }
         }
+
     }
 }
 
