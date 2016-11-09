@@ -1,9 +1,9 @@
 package Module11.Task1;
 
-import Module11.FileUtils;
-
-import java.io.*;
-import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Map;
 
 /**
@@ -16,13 +16,14 @@ import java.util.Map;
  * String replacer(Map<String, String> map)
  */
 public class Task1 {
+    private String fileName;
 
-    public String readFile() throws IOException{
+    private String readFile() throws IOException {
         String result;
         StringBuilder sb = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Enter file name");
-            String fileName = br.readLine();
+            fileName = br.readLine();
             BufferedReader br1 = new BufferedReader(new FileReader(fileName + ".txt"));
             while ( (result = br1.readLine())!= null) {
                 sb.append(result);
@@ -32,39 +33,32 @@ public class Task1 {
         } catch (IOException e) {
             System.out.println("file not found");
         }
-        result = sb.toString();
-
-        Map<String, String> mapWord = new HashMap<>();
-
-        String[] temp = result.split("\r\n");
-
-
-        for (int i = 0; i > temp.length; i++) {
-            if(mapWord.containsKey(temp[i])){
-                temp[i] = " ";
-            }
-
-            System.out.println();
-        }
-
         return sb.toString();
     }
 
-    public String replaceWord (Map<String, String> param){
-
-        return  null;
+    public String replaceWord(Map<String, String> param) throws IOException {
+        String[] temp = readFile().split("\r\n");
+        StringBuilder sb = new StringBuilder();
+        boolean flag = false;
+        for (int i = 0; i < param.size(); i++) {
+            for (int k = 0; k < temp.length; k++) {
+                if (param.containsKey(temp[i])) {
+                    sb.append(temp[i]).append(" to ");
+                    temp[i] = param.get(temp[i]);
+                    sb.append(temp[i]).append("\n");
+                    flag = true;
+                }
+            }
+        }
+        if (!flag) {
+            return "There are no words to replace";
+        } else {
+            System.out.println("replacement of the following words");
+            return sb.toString();
+        }
     }
-    public static void main(String[] args) throws Exception {
 
-        Task1 task1 = new Task1();
-
-        //FileUtils.createFile();
-        //FileUtils.writeToFile();
-
-        System.out.println(task1.readFile());
-
-
+    public String getFileName() {
+        return fileName;
     }
-
-
 }
