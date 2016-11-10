@@ -9,6 +9,8 @@ import java.util.Scanner;
  */
 public class FileUtils {
 
+    private static String fileName;
+
     public static void createFile() throws Exception {
 
 
@@ -23,6 +25,24 @@ public class FileUtils {
                 System.out.println("File " + fileName + " is exist");
             }
         }
+    }
+
+    public static String readFile() throws IOException {
+        String result;
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Enter file name");
+            fileName = br.readLine();
+            BufferedReader br1 = new BufferedReader(new FileReader(fileName + ".txt"));
+            while ((result = br1.readLine()) != null) {
+                sb.append(result);
+                sb.append(System.lineSeparator());
+            }
+            br1.close();
+        } catch (IOException e) {
+            System.out.println("file not found");
+        }
+        return sb.toString();
     }
 
     public static void writeToFile() throws IOException {
@@ -46,7 +66,10 @@ public class FileUtils {
             System.out.println("file not found. if you want to create a file, press 1, if not - 0");
 
         }
+    }
 
+    public static String getFileName() {
+        return fileName;
     }
 }
 
