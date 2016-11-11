@@ -9,33 +9,30 @@ import java.util.List;
 /**
  * Created by PC on ${DATA}.
  * Check if file contains particular word. Pring 0 if no. Print number n which equals number of times it is contained in the file
- a) read file, save to string var
- b) calculate how many time the word occurs
- c) print result
- int checkWord(String word)
+ * a) read file, save to string var
+ * b) calculate how many time the word occurs
+ * c) print result
+ * int checkWord(String word)
  */
 public class Task4 {
 
-    public int checkWord(String word) throws IOException{
-
-
+    public int checkWord(String word) throws IOException {
+        int counterMatches = 0;
         String var = FileUtils.readFile();
-        String[] stringArray =  var.split("\n");
-
-        for (int i = 0; i < stringArray.length; i++){
-            String[] tempArray = stringArray[i].split(" ");
-            if (tempArray.length > 0){
-
+        String[] stringArray = var.split("\r\n");
+        for (String aStringArray : stringArray) {
+            String[] tempArray = aStringArray.split(" ");
+            if (tempArray.length > 1) {
+                for (String aTempArray : tempArray) {
+                    if (aTempArray.equals(word)) {
+                        counterMatches++;
+                    }
+                }
+            }
+            if (aStringArray.equals(word)) {
+                counterMatches++;
             }
         }
-
-
-
-
-
-
-        return 0;
+        return counterMatches;
     }
-
-
 }

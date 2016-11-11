@@ -12,8 +12,6 @@ public class FileUtils {
     private static String fileName;
 
     public static void createFile() throws Exception {
-
-
         String fileName;
         System.out.println("enter name of file");
         try (Scanner sc = new Scanner(new InputStreamReader(System.in))) {
@@ -46,10 +44,8 @@ public class FileUtils {
     }
 
     public static void writeToFile() throws IOException {
-
         String fileName;
         String text;
-
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("enter the file name which will write text");
             fileName = br.readLine();
@@ -64,7 +60,6 @@ public class FileUtils {
             br.close();
         } catch (FileNotFoundException e) {
             System.out.println("file not found. if you want to create a file, press 1, if not - 0");
-
         }
     }
 

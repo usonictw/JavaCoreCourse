@@ -8,14 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-/**
- * Created by PC on ${DATA}.
- * You should create method which replace words in the File and rewrite File content with new values
- * a) read file, save to string var
- * b) replace words
- * c) rewrite file with string
- * File fileContentReplacer(Map<String, String> map)
- */
 public class Task2 extends Task1 {
 
     public void rewriteFile(Map<String, String> replaceWord) throws IOException {

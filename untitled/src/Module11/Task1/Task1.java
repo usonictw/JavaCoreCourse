@@ -8,15 +8,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Map;
 
-/**
- * Created by PC on ${DATA}.
- * <p>
- * You should create method which replace words in the File and returns String with replaced values
- * a) read file, save to string var
- * b) replace words
- * c) return new string
- * String replacer(Map<String, String> map)
- */
 public class Task1 {
 
     public String replaceWord(Map<String, String> param) throws IOException {
@@ -37,7 +28,6 @@ public class Task1 {
             System.out.println("There are no words to replace");
             return sb.toString();
         } else {
-            System.out.println("replacement done");
             return sb.toString();
         }
     }

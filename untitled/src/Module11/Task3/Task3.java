@@ -6,9 +6,6 @@ import Module11.Task1.Task1;
 import java.io.*;
 import java.util.Map;
 
-/**
- * Created by PC on ${DATA}.
- */
 public class Task3 extends Task1{
 
     public void FileContentMerged(Map<String, String> replaceWord) throws IOException{
