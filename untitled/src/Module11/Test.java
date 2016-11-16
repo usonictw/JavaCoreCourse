@@ -33,7 +33,7 @@ public class Test {
         //task2.rewriteFile(mapWord);
         //task3.FileContentMerged(mapWord);
 
-        task4.checkWord("hello");
+        System.out.println(task4.checkWord("hello"));
 
 
     }

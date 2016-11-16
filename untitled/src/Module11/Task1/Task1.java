@@ -11,7 +11,7 @@ import java.util.Map;
 public class Task1 {
 
     public String replaceWord(Map<String, String> param) throws IOException {
-        String[] temp = FileUtils.readFile().split("\r\n");
+        String[] temp = FileUtils.readFile().split(System.lineSeparator());
         StringBuilder sb = new StringBuilder();
         boolean flag = false;
         for (int k = 0; k < temp.length; k++) {

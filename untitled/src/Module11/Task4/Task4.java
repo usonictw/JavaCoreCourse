@@ -8,7 +8,7 @@ public class Task4 {
     public int checkWord(String word) throws IOException {
         int counterMatches = 0;
         String var = FileUtils.readFile();
-        String[] stringArray = var.split("\r\n");
+        String[] stringArray = var.split(System.lineSeparator());
         for (String aStringArray : stringArray) {
             String[] tempArray = aStringArray.split(" ");
             if (tempArray.length > 1) {
