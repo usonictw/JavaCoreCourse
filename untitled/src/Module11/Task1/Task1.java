@@ -5,7 +5,6 @@ import Module11.FileUtils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Map;
 
 public class Task1 {
@@ -22,7 +21,7 @@ public class Task1 {
                 }
             }
             sb.append(temp[k]);
-            sb.append("\n");
+            sb.append(System.lineSeparator());
         }
         if (!flag) {
             System.out.println("There are no words to replace");

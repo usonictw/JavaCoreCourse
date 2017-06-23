@@ -2,13 +2,54 @@ package Module6;
 
 import Module5.homework.Room;
 
-/**
- * Created by PC on ${DATA}.
- */
+import java.util.Arrays;
+import java.util.List;
+
+
 public final class ArraysUtils {
 
+
+    static int[] bubbleSort(int[] inputArray) {
+
+        int i;
+        boolean flag;
+        for (int k = 0; k < inputArray.length; k++) {
+            flag = true;
+            for (i = 0; i < inputArray.length - k - 1; i++) {
+                if (inputArray[i] > inputArray[i + 1]) {
+                    int temp = inputArray[i];
+                    inputArray[i] = inputArray[i + 1];
+                    inputArray[i + 1] = temp;
+                    flag = false;
+                }
+            }
+            if (flag) break;
+            flag = true;
+            for (int j = i-1; j > 0; j--) {
+                if (inputArray[j] < inputArray[j - 1]) {
+                    int temp = inputArray[j];
+                    inputArray[j] = inputArray[j - 1];
+                    inputArray[j - 1] = temp;
+                    flag = false;
+                }
+            }
+            if (flag) break;
+        }
+        return inputArray;
+    }
+
+    public static void main(String[] args) {
+
+        int[] a = {1, 6, 9, 0, 7, 3, 8};
+        System.out.println(Arrays.toString(ArraysUtils.bubbleSort(a)));
+    }
+
+
+
+
+
     //------------------------------------------------------Calculated Sum of all elements the array-------------------------------------------
-    final static int calculateSum(int[] array) {
+    static int calculateSum(int[] array) {
         int sum = 0;
         for (int valueOfArray : array) {
 
@@ -57,7 +98,7 @@ public final class ArraysUtils {
         return posmax;
     }
 
-   //-------------------------------------------------------miltiplication--------------------------------------------------------------
+    //-------------------------------------------------------miltiplication--------------------------------------------------------------
 
     static int multiplication(int[] array) {
         int mult = 1;
@@ -117,13 +158,13 @@ public final class ArraysUtils {
     static int secondLargestNew(int[] array) {
 
         int max1 = array[0];
-        for (int i = 1; i < array.length/2; i++) {
+        for (int i = 1; i < array.length / 2; i++) {
             if (max1 < array[i]) {
                 max1 = array[i];
             }
         }
-        int max2 = array[array.length/2];
-        for (int i = array.length/2 + 1; i < array.length; i++) {
+        int max2 = array[array.length / 2];
+        for (int i = array.length / 2 + 1; i < array.length; i++) {
             if (max2 < array[i]) {
                 max2 = array[i];
             }
@@ -131,7 +172,7 @@ public final class ArraysUtils {
 
         int secondLargestNew;
 
-        if (max1 < max2){
+        if (max1 < max2) {
             secondLargestNew = max1;
         } else {
             secondLargestNew = max2;
@@ -141,30 +182,30 @@ public final class ArraysUtils {
 
     //---------------------------------------------Reverse array-------------------------------------------------------------------------
 
-  static int[] reverse(int array[]){
+    static int[] reverse(int array[]) {
 
-      int reverseArray[] = new int[array.length];
-      int k = array.length-1;
-      for (int i : array){
+        int reverseArray[] = new int[array.length];
+        int k = array.length - 1;
+        for (int i : array) {
 
-          reverseArray[k] = i;
-          k--;
+            reverseArray[k] = i;
+            k--;
 
-      }
-      return reverseArray;
-  }
+        }
+        return reverseArray;
+    }
 
     //-------------------------------------------------Founding even elements-------------------------------------------------------------------
-    static int [] findEvenElements(int[] array){
+    static int[] findEvenElements(int[] array) {
 
         int evenElements[] = new int[array.length];
-        int index =0;
-        for(int i : array){
+        int index = 0;
+        for (int i : array) {
 
-            if(i%2==0) evenElements[index] = i;
+            if (i % 2 == 0) evenElements[index] = i;
             index++;
         }
-        return  evenElements;
+        return evenElements;
     }
 
 

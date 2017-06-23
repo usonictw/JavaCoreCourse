@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * Created by PC on ${DATA}.
  */
-public class User {
+public class User extends Object{
 
     private Long id;
     private String firstName;

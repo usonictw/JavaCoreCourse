@@ -21,9 +21,9 @@ public class CallException {
             // check the list by the type currency, if currency is "RUB" throw exception
 
             for (User u : userList) {
-                if (u.getCurrency().equals("RUB")) {
-                    throw new MyException3("User " + u.getName() + " Using RUB. You have to change type of currency");
-                }
+                //if (u.getCurrency().equals("RUB")) {
+                //    throw new MyException3("User " + u.getName() + " Using RUB. You have to change type of currency");
+                //}
 
                 // checking the list of the number of characters in the userName, if number of characters less 4 trow Exception
 

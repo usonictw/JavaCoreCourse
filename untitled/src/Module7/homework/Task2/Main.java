@@ -82,6 +82,7 @@ public class Main {
 
             if (listOrder.get(i).getCurrency() == Currency.UAH) {
                 list1.add(listOrder.get(i));
+                listOrder.remove(i);
             } else {
                 list2.add(listOrder.get(i));
             }

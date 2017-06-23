@@ -49,15 +49,15 @@ public class FileUtils {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("enter the file name which will write text");
             fileName = br.readLine();
-            BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+            //BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
             BufferedWriter bw = new BufferedWriter(new FileWriter(fileName + ".txt"));
             System.out.println("enter the text that will be written to a file. to exit from the recording mode, press \"Space\"");
-            while (!((text = br1.readLine()).equals(" "))) {
+            while (!((text = br.readLine()).equals(" "))) {
                 bw.write(text + System.lineSeparator());
                 bw.flush();
             }
             bw.close();
-            br.close();
+
         } catch (FileNotFoundException e) {
             System.out.println("file not found. if you want to create a file, press 1, if not - 0");
         }

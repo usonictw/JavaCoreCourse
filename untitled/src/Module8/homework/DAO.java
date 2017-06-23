@@ -11,7 +11,7 @@ public interface DAO<T> {
 
     void save(T object);
     void delete(T object);
-    void deleteAll(List<T> object);
-    void saveAll(List<T> object);
-    List<T> getList();
+    void deleteAll(List<? extends T> object);
+    void saveAll(List<? extends T> object);
+    List<? extends T> getList();
 }

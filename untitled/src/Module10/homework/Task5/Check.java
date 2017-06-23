@@ -15,9 +15,9 @@ public class Check {
 
     public static void main(String[] args) throws MyException1 {
 
-        userList.add(new User(01, "Jhon", "USD"));
-        userList.add(new User(02, "Piter", "USD"));
-        userList.add(new User(03, "Curt", "USD"));
+        userList.add(new User(01, "Jhon"));
+        userList.add(new User(02, "Piter"));
+        userList.add(new User(03, "Curt"));
 
         CallException callException = new CallException();
 

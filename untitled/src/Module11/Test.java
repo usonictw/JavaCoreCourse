@@ -25,15 +25,15 @@ public class Test {
 
         //System.out.println(FileUtils.readFile());
         Map<String, String> mapWord = new HashMap<>();
-        mapWord.put("hell", "hello");
-        mapWord.put("wor", "word");
+        mapWord.put("hello", "h");
+        mapWord.put("world", "w");
 
         //System.out.println(task1.replaceWord(mapWord));
 
-        //task2.rewriteFile(mapWord);
+        task2.rewriteFile(mapWord);
         //task3.FileContentMerged(mapWord);
 
-        System.out.println(task4.checkWord("hello"));
+        //System.out.println(task4.checkWord("hello"));
 
 
     }

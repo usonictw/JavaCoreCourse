@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class DAOImpl<T> implements DAO<T> {
 
-    private List<T> list = new ArrayList<T>();
+    private List<T> list = new ArrayList<>();
     @Override
     public void save(T object) {
         System.out.println("Added users in the DAO");
@@ -28,8 +28,10 @@ public class DAOImpl<T> implements DAO<T> {
 
     }
 
+
+
     @Override
-    public void deleteAll(List<T> object) {
+    public void deleteAll(List<? extends T> object) {
 
         if (!object.isEmpty()) {
             list.removeAll(object);
@@ -40,9 +42,9 @@ public class DAOImpl<T> implements DAO<T> {
     }
 
     @Override
-    public void saveAll(List<T> object) {
+    public void saveAll(List<? extends T> objects) {
 
-        list.addAll(object);
+        list.addAll(objects);
 
     }
 
